@@ -1,0 +1,333 @@
+import { useParams, useNavigate } from "react-router-dom";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { CTASection } from "@/components/CTASection";
+import { ArrowLeft, ExternalLink, Calendar, Users, Target } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+// Mock project data - in a real app this would come from an API
+const projectsData: Record<string, {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  fullDescription: string;
+  image: string;
+  results: string[];
+  client: string;
+  year: string;
+  team: string;
+  services: string[];
+}> = {
+  "ecommerce-platform": {
+    id: "ecommerce-platform",
+    title: "E-commerce Platform",
+    category: "Web Development",
+    description: "Enterprise-level e-commerce solution with advanced features",
+    fullDescription: "We built a comprehensive e-commerce platform that handles thousands of transactions daily. The solution includes real-time inventory management, AI-powered product recommendations, and a seamless checkout experience optimized for conversion.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop",
+    results: ["60% conversion rate increase", "2M+ monthly visitors", "99.9% uptime"],
+    client: "TechRetail Inc.",
+    year: "2024",
+    team: "8 specialists",
+    services: ["Web Development", "UI/UX Design", "Performance Optimization"]
+  },
+  "saas-dashboard": {
+    id: "saas-dashboard",
+    title: "SaaS Dashboard",
+    category: "Web Development",
+    description: "Real-time analytics dashboard for enterprise clients",
+    fullDescription: "A powerful SaaS dashboard that provides real-time analytics and insights. Built with performance in mind, it handles massive datasets while maintaining a responsive and intuitive user interface.",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&auto=format&fit=crop",
+    results: ["40% increase in user engagement", "50% faster load times", "95% user satisfaction"],
+    client: "DataFlow Systems",
+    year: "2024",
+    team: "6 specialists",
+    services: ["Web Development", "Data Visualization", "API Integration"]
+  },
+  "corporate-website": {
+    id: "corporate-website",
+    title: "Corporate Website",
+    category: "Web Development",
+    description: "Modern corporate presence with exceptional performance",
+    fullDescription: "A sleek, modern corporate website that establishes a strong digital presence. Featuring smooth animations, optimized performance, and a content management system for easy updates.",
+    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1200&auto=format&fit=crop",
+    results: ["85% brand recognition increase", "3x organic traffic growth", "45% lower bounce rate"],
+    client: "Horizon Enterprises",
+    year: "2023",
+    team: "5 specialists",
+    services: ["Web Development", "Branding", "SEO Optimization"]
+  },
+  "social-campaign": {
+    id: "social-campaign",
+    title: "Social Campaign",
+    category: "Digital Marketing",
+    description: "Viral social media campaign with exceptional reach",
+    fullDescription: "A multi-platform social media campaign that went viral, reaching millions of users organically. Strategic content planning combined with data-driven optimization delivered exceptional results.",
+    image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=1200&auto=format&fit=crop",
+    results: ["10M+ impressions", "500K+ engagements", "200% follower growth"],
+    client: "LifeStyle Brand",
+    year: "2024",
+    team: "4 specialists",
+    services: ["Social Media Marketing", "Content Strategy", "Influencer Partnerships"]
+  },
+  "seo-strategy": {
+    id: "seo-strategy",
+    title: "SEO Strategy",
+    category: "Digital Marketing",
+    description: "Comprehensive SEO overhaul with measurable results",
+    fullDescription: "A complete SEO transformation that took the client from page 5 to the top 3 results for their key terms. Technical SEO, content optimization, and link building combined for maximum impact.",
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&auto=format&fit=crop",
+    results: ["300% organic traffic increase", "#1 ranking for 50+ keywords", "150% more leads"],
+    client: "Growth Startup",
+    year: "2024",
+    team: "3 specialists",
+    services: ["SEO Optimization", "Content Marketing", "Technical Audit"]
+  },
+  "email-marketing": {
+    id: "email-marketing",
+    title: "Email Marketing",
+    category: "Digital Marketing",
+    description: "High-converting email campaigns with personalization",
+    fullDescription: "Developed a sophisticated email marketing system with advanced segmentation and personalization. Automated workflows nurture leads through the funnel with precision timing.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&auto=format&fit=crop",
+    results: ["45% open rate", "12% click-through rate", "280% ROI"],
+    client: "E-Commerce Plus",
+    year: "2023",
+    team: "3 specialists",
+    services: ["Email Marketing", "Automation", "A/B Testing"]
+  },
+  "brand-film": {
+    id: "brand-film",
+    title: "Brand Film",
+    category: "Video Production",
+    description: "Cinematic brand storytelling that captivates",
+    fullDescription: "A premium brand film that tells the company's story through stunning visuals and emotional storytelling. Shot on location with a professional crew, this film elevates the brand to new heights.",
+    image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&auto=format&fit=crop",
+    results: ["5M+ views", "Featured in 20+ publications", "Award-winning"],
+    client: "Luxury Motors",
+    year: "2024",
+    team: "12 specialists",
+    services: ["Video Production", "Cinematography", "Post-Production"]
+  },
+  "product-video": {
+    id: "product-video",
+    title: "Product Video",
+    category: "Video Production",
+    description: "Dynamic product showcase with stunning visuals",
+    fullDescription: "A series of product videos that showcase every detail in stunning 4K quality. Dynamic camera movements and precise lighting highlight the product's premium qualities.",
+    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200&auto=format&fit=crop",
+    results: ["35% increase in conversions", "2M+ views across platforms", "Shared by 50+ influencers"],
+    client: "TechGadget Co.",
+    year: "2024",
+    team: "8 specialists",
+    services: ["Video Production", "Product Photography", "Motion Graphics"]
+  },
+  "motion-graphics": {
+    id: "motion-graphics",
+    title: "Motion Graphics",
+    category: "Video Production",
+    description: "Eye-catching animated content for digital platforms",
+    fullDescription: "A comprehensive motion graphics package including explainer videos, social media content, and animated advertisements. Each piece is designed to grab attention and communicate clearly.",
+    image: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=1200&auto=format&fit=crop",
+    results: ["60% higher engagement", "Used in 100+ campaigns", "Reduced production time by 40%"],
+    client: "SaaS Platform",
+    year: "2023",
+    team: "5 specialists",
+    services: ["Motion Graphics", "Animation", "Sound Design"]
+  },
+  "brand-identity": {
+    id: "brand-identity",
+    title: "Brand Identity",
+    category: "Branding",
+    description: "Complete visual identity system for modern brands",
+    fullDescription: "A comprehensive brand identity that includes logo design, color palette, typography, iconography, and extensive brand guidelines. Every element works together to create a cohesive brand experience.",
+    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1200&auto=format&fit=crop",
+    results: ["Brand recognition up 85%", "Consistent across 50+ touchpoints", "Award-nominated design"],
+    client: "FinTech Startup",
+    year: "2024",
+    team: "6 specialists",
+    services: ["Brand Strategy", "Visual Identity", "Brand Guidelines"]
+  },
+  "logo-design": {
+    id: "logo-design",
+    title: "Logo Design",
+    category: "Branding",
+    description: "Iconic logo design that stands the test of time",
+    fullDescription: "A timeless logo that captures the essence of the brand in a single mark. Through extensive research and iteration, we created a logo that is both memorable and versatile.",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=1200&auto=format&fit=crop",
+    results: ["98% brand recall", "Scalable from favicon to billboard", "Featured in design publications"],
+    client: "Wellness Brand",
+    year: "2024",
+    team: "3 specialists",
+    services: ["Logo Design", "Icon Design", "Typography"]
+  },
+  "brand-guidelines": {
+    id: "brand-guidelines",
+    title: "Brand Guidelines",
+    category: "Branding",
+    description: "Comprehensive guidelines for brand consistency",
+    fullDescription: "A detailed brand guidelines document that ensures consistency across all touchpoints. From color usage to voice and tone, every aspect of the brand is documented and explained.",
+    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&auto=format&fit=crop",
+    results: ["100% team adoption", "50% faster content creation", "Zero brand inconsistencies"],
+    client: "Enterprise Corp",
+    year: "2023",
+    team: "4 specialists",
+    services: ["Brand Guidelines", "Asset Library", "Training Materials"]
+  }
+};
+
+const Project = () => {
+  const { projectId } = useParams();
+  const navigate = useNavigate();
+  
+  const project = projectId ? projectsData[projectId] : null;
+
+  if (!project) {
+    return (
+      <div className="min-h-screen">
+        <Navigation />
+        <main className="pt-40 pb-24">
+          <div className="container mx-auto px-6 lg:px-12 text-center">
+            <h1 className="text-display font-semibold text-foreground mb-4">Project Not Found</h1>
+            <p className="text-muted-foreground mb-8">The project you're looking for doesn't exist.</p>
+            <Button onClick={() => navigate("/work")}>
+              <ArrowLeft className="mr-2 w-4 h-4" />
+              Back to Work
+            </Button>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen">
+      <Navigation />
+      <main>
+        {/* Hero */}
+        <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-subtle">
+          <div className="container mx-auto px-6 lg:px-12">
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center text-muted-foreground hover:text-foreground transition-colors mb-8 group"
+            >
+              <ArrowLeft className="mr-2 w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              Back
+            </button>
+            
+            <div className="max-w-4xl">
+              <span className="text-sm font-medium text-primary uppercase tracking-widest mb-4 block animate-fade-up">
+                {project.category}
+              </span>
+              <h1 className="text-display font-semibold text-foreground mb-6 animate-fade-up" style={{ animationDelay: "100ms" }}>
+                {project.title}
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed animate-fade-up" style={{ animationDelay: "200ms" }}>
+                {project.description}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Project Image */}
+        <section className="pb-16 lg:pb-24 bg-gradient-subtle">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl animate-fade-up" style={{ animationDelay: "300ms" }}>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </div>
+          </div>
+        </section>
+
+        {/* Project Details */}
+        <section className="py-16 lg:py-24 bg-background">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              {/* Main Content */}
+              <div className="lg:col-span-2">
+                <h2 className="text-title font-semibold text-foreground mb-6">About the Project</h2>
+                <p className="text-muted-foreground leading-relaxed text-lg mb-8">
+                  {project.fullDescription}
+                </p>
+                
+                <h3 className="text-xl font-semibold text-foreground mb-4">Services Provided</h3>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {project.services.map((service) => (
+                    <span
+                      key={service}
+                      className="px-4 py-2 bg-secondary rounded-full text-sm font-medium text-foreground"
+                    >
+                      {service}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold text-foreground mb-4">Key Results</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {project.results.map((result, index) => (
+                    <div
+                      key={index}
+                      className="p-6 bg-secondary rounded-2xl text-center"
+                    >
+                      <Target className="w-6 h-6 text-primary mx-auto mb-3" />
+                      <p className="font-semibold text-foreground">{result}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sidebar */}
+              <div className="space-y-6">
+                <div className="p-6 bg-secondary rounded-2xl">
+                  <h4 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">Project Details</h4>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Users className="w-5 h-5 text-muted-foreground" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Client</p>
+                        <p className="font-medium text-foreground">{project.client}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Calendar className="w-5 h-5 text-muted-foreground" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Year</p>
+                        <p className="font-medium text-foreground">{project.year}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Users className="w-5 h-5 text-muted-foreground" />
+                      <div>
+                        <p className="text-xs text-muted-foreground">Team Size</p>
+                        <p className="font-medium text-foreground">{project.team}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Button className="w-full" size="lg">
+                  <ExternalLink className="mr-2 w-4 h-4" />
+                  View Live Project
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <CTASection />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Project;
