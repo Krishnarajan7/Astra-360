@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SocialIcons } from "@/components/ui/social-icons";
 
 export const Footer = () => {
   return (
@@ -19,9 +20,12 @@ export const Footer = () => {
                 ASTRA<span className="opacity-60 font-normal"> 360</span>
               </span>
             </Link>
-            <p className="text-primary-foreground/60 max-w-md leading-relaxed">
+            <p className="text-primary-foreground/60 max-w-md leading-relaxed mb-8">
               We craft digital experiences that transform brands and drive measurable growth. Premium solutions for ambitious companies.
             </p>
+            
+            {/* Social Icons */}
+            <SocialIcons />
           </div>
 
           {/* Navigation */}

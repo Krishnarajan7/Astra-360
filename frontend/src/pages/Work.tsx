@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
 import { ArrowUpRight } from "lucide-react";
+import { PortfolioFolders } from "@/components/PortfolioFolders";
 
 const projects = [
   {
@@ -132,6 +133,21 @@ const Work = () => {
             </div>
           </div>
         </section>
+
+        {/* Portfolio Folders */}
+                <section className="py-24 lg:py-32 bg-secondary/30">
+                  <div className="container mx-auto px-6 lg:px-12">
+                    <div className="text-center mb-16 reveal">
+                      <span className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4 block">
+                        Browse By Category
+                      </span>
+                      <h2 className="text-headline font-semibold text-foreground">
+                        Explore our <span className="text-gradient">expertise.</span>
+                      </h2>
+                    </div>
+                    <PortfolioFolders className="reveal" />
+                  </div>
+                </section>
 
         <CTASection />
       </main>
