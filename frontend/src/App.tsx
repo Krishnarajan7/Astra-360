@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Project from "./pages/Project";
 import NotFound from "./pages/NotFound";
 import { SimpleToastProvider } from "./components/ui/simple-toast";
+import { ExpandableChatDemo } from "./components/ExpandableChatDemo";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <ExpandableChatDemo />
         </BrowserRouter>
       </SimpleToastProvider>
     </TooltipProvider>

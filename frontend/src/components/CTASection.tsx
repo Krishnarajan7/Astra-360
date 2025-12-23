@@ -31,10 +31,10 @@ export const CTASection = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-headline lg:text-display font-semibold text-foreground mb-8 reveal">
+          <h2 className="text-headline lg:text-display font-medium text-foreground mb-8 reveal">
             Ready to transform
             <br />
-            <span className="text-gradient">your brand?</span>
+            <span className="text-gradient">Your Brand?</span>
           </h2>
           <p className="text-body-lg text-muted-foreground max-w-2xl mx-auto mb-12 reveal">
             Let's create something extraordinary together. Tell us about your vision and we'll show you what's possible.
