@@ -23,7 +23,7 @@ const Index = () => {
                 What We Do
               </span>
               <h2 className="text-headline font-semibold text-foreground mb-6">
-                Complete digital <span className="text-gradient">solutions.</span>
+                Complete digital <span className="text-gradient">Solutions.</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 From strategy to execution, we provide end-to-end services that drive real business results.
@@ -41,7 +41,7 @@ const Index = () => {
                 Our Work
               </span>
               <h2 className="text-headline font-semibold text-foreground mb-6">
-                Explore our <span className="text-gradient">portfolio.</span>
+                Explore our <span className="text-gradient">Portfolio.</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Hover over each folder to preview our latest projects across different categories.

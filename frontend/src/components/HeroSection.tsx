@@ -1,8 +1,27 @@
+import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 export const HeroSection = () => {
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => ["Experiences", "Solutions", "Strategies", "Innovations", "Results"],
+    []
+  );
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (titleNumber === titles.length - 1) {
+        setTitleNumber(0);
+      } else {
+        setTitleNumber(titleNumber + 1);
+      }
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle">
       {/* Animated gradient ring background */}
@@ -31,9 +50,28 @@ export const HeroSection = () => {
           <h1 className="text-display font-semibold text-foreground mb-8 animate-fade-up-delay-1">
             We Build Digital
             <br />
-            <span className="text-gradient">Experiences</span> That
-            <br />
-            Grow Brands.
+            <span className="relative flex justify-center items-center h-[1.2em] overflow-hidden">
+              <AnimatePresence mode="wait">
+                {titles.map((title, index) => (
+                  titleNumber === index && (
+                    <motion.span
+                      key={index}
+                      className="text-gradient absolute"
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -40 }}
+                      transition={{ 
+                        duration: 0.5,
+                        ease: [0.16, 1, 0.3, 1]
+                      }}
+                    >
+                      {title}
+                    </motion.span>
+                  )
+                ))}
+              </AnimatePresence>
+            </span>
+            That Grow Brands.
           </h1>
 
           {/* Subheading */}
