@@ -85,7 +85,7 @@ const Work = () => {
               <h1 className="text-display font-semibold text-foreground mb-8 animate-fade-up-delay-1">
                 Projects that
                 <br />
-                <span className="text-gradient">deliver results.</span>
+                <span className="text-gradient">Deliver Results.</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-up-delay-2">
                 A selection of our work across industries, demonstrating our commitment to excellence and measurable impact.
@@ -142,7 +142,7 @@ const Work = () => {
                         Browse By Category
                       </span>
                       <h2 className="text-headline font-semibold text-foreground">
-                        Explore our <span className="text-gradient">expertise.</span>
+                        Explore our <span className="text-gradient">Expertise.</span>
                       </h2>
                     </div>
                     <PortfolioFolders className="reveal" />

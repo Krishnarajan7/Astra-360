@@ -11,7 +11,10 @@ import Contact from "./pages/Contact";
 import Project from "./pages/Project";
 import NotFound from "./pages/NotFound";
 import { SimpleToastProvider } from "./components/ui/simple-toast";
+import WorkCategory from "./pages/WorkCategory";
 import { ExpandableChatDemo } from "./components/ExpandableChatDemo";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { CookieConsent } from "@/components/ui/cookie-consent";
 
 const queryClient = new QueryClient();
 
@@ -22,15 +25,18 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/work/:categoryId" element={<WorkCategory />} />
             <Route path="/project/:projectId" element={<Project />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <CookieConsent showDelay={3000} autoHideDelay={15000} />
           <ExpandableChatDemo />
         </BrowserRouter>
       </SimpleToastProvider>

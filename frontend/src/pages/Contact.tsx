@@ -123,7 +123,7 @@ const Contact = () => {
               <h1 className="text-display font-semibold text-foreground mb-8 animate-fade-up-delay-1">
                 Let's create
                 <br />
-                <span className="text-gradient">together.</span>
+                <span className="text-gradient">Together.</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-up-delay-2">
                 Tell us about your project and we'll show you what's possible. We respond within 24 hours.
@@ -293,7 +293,7 @@ const Contact = () => {
                 FAQ
               </span>
               <h2 className="text-headline font-semibold text-foreground">
-                Common <span className="text-gradient">questions.</span>
+                Common <span className="text-gradient">Questions.</span>
               </h2>
             </div>
             <div className="reveal">
