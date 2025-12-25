@@ -18,6 +18,7 @@ import {
   Wrench,
   LineChart
 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const faqItems = [
   {
@@ -143,6 +144,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Services | ASTRA 360 - Web Development, SEO & App Development"
+        description="Explore our comprehensive digital services including custom web development, SEO optimization, app development, web hosting, UI/UX design, and digital marketing solutions."
+        canonical="https://astra360.com/services"
+      />
       <Navigation />
       <main ref={sectionRef}>
         {/* Hero */}

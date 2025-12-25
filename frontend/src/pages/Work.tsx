@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
 import { ArrowUpRight } from "lucide-react";
 import { PortfolioFolders } from "@/components/PortfolioFolders";
+import { SEOHead } from "@/components/SEOHead";
 
 const projects = [
   {
@@ -73,6 +74,11 @@ const Work = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Our Work | ASTRA 360 - Portfolio & Case Studies"
+        description="Explore our portfolio of successful projects. From web development to digital marketing campaigns, see how we deliver measurable results for ambitious brands."
+        canonical="https://astra360.com/work"
+      />
       <Navigation />
       <main ref={sectionRef}>
         {/* Hero */}

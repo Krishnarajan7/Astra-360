@@ -15,6 +15,7 @@ import WorkCategory from "./pages/WorkCategory";
 import { ExpandableChatDemo } from "./components/ExpandableChatDemo";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieConsent } from "@/components/ui/cookie-consent";
+import { FloatingActionButton } from "@/components/FloatingActionButton";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent showDelay={3000} autoHideDelay={15000} />
+          <FloatingActionButton />
           <ExpandableChatDemo />
         </BrowserRouter>
       </SimpleToastProvider>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, FormEvent } from "react"
-import { Send, Bot, Paperclip, Mic, CornerDownLeft } from "lucide-react"
+import { Send, BotMessageSquare, Paperclip, Mic, CornerDownLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   ChatBubble,
@@ -85,7 +85,7 @@ export function ExpandableChatDemo() {
     <ExpandableChat
       position="bottom-left"
       size="md"
-      icon={<Bot className="h-6 w-6" />}
+      icon={<BotMessageSquare className="h-6 w-6" />}
     >
       <ExpandableChatHeader>
         <div className="flex flex-col">
