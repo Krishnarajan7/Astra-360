@@ -205,10 +205,6 @@ Edit CSS variables in `src/index.css` under `:root` (light) or `.dark` (dark mod
 
 ## 🌐 Deployment
 
-### Lovable
-Click **Share → Publish** in the Lovable editor.
-
-### Other Platforms
 Build the project and deploy the `dist` folder:
 ```bash
 npm run build
