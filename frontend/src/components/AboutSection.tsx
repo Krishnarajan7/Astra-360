@@ -2,11 +2,12 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Counter } from "@/components/ui/counter";
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "5+", label: "Years Experience" },
+  { value: 50, suffix: "+", label: "Projects Delivered" },
+  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: 5, suffix: "+", label: "Years Experience" },
 ];
 
 export const AboutSection = () => {
@@ -73,7 +74,7 @@ export const AboutSection = () => {
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="text-5xl lg:text-6xl font-semibold text-gradient mb-2">
-                    {stat.value}
+                    <Counter end={stat.value} suffix={stat.suffix} duration={2000} />
                   </div>
                   <div className="text-primary-foreground/60 text-lg">
                     {stat.label}

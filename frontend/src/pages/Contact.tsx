@@ -9,6 +9,7 @@ import { UniqueAccordion } from "@/components/ui/interactive-accordion";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
 import { RatingInteraction } from "@/components/ui/emoji-rating";
 import { useSimpleToast } from "@/components/ui/simple-toast";
+import { SEOHead } from "@/components/SEOHead";
 import {
   Card,
   CardContent,
@@ -111,6 +112,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="Contact Us | ASTRA 360 - Get In Touch"
+        description="Ready to start your project? Contact ASTRA 360 today. We respond within 24 hours. Let's create something exceptional together."
+        canonical="https://astra360.com/contact"
+      />
       <Navigation />
       <main ref={sectionRef}>
         {/* Hero */}

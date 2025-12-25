@@ -13,7 +13,7 @@ const projects = [
   {
     title: "Nexus Brand Campaign",
     category: "Digital Marketing",
-    description: "360° launch campaign with 300% ROI increase",
+    description: "360° launch campaign with 300%+ ROI increase",
     gradient: "from-astra-orange/20 to-astra-teal/20",
   },
   {

@@ -7,10 +7,16 @@ import { WorkSection } from "@/components/WorkSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { SEOHead } from "@/components/SEOHead";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="ASTRA 360 | Premium Digital Marketing & IT Solutions Agency"
+        description="ASTRA 360 is a premium digital agency specializing in web development, SEO optimization, app development, and digital marketing. We build exceptional digital experiences that drive measurable growth."
+        canonical="https://astra360.com"
+      />
       <Navigation />
       <main>
         <HeroSection />

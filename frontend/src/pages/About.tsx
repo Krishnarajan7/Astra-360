@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
+import { Counter } from "@/components/ui/counter";
+import { SEOHead } from "@/components/SEOHead";
 import { Target, Heart, Lightbulb, Users, Award, Clock, Globe, Zap } from "lucide-react";
 
 const values = [
@@ -28,10 +30,10 @@ const values = [
 ];
 
 const stats = [
-  { number: "100+", label: "Projects Delivered" },
-  { number: "50+", label: "Happy Clients" },
-  { number: "5+", label: "Years Experience" },
-  { number: "99%", label: "Client Satisfaction" },
+  { value: 100, suffix: "+", label: "Projects Delivered" },
+  { value: 50, suffix: "+", label: "Happy Clients" },
+  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 99, suffix: "%", label: "Client Satisfaction" },
 ];
 
 const milestones = [
@@ -66,6 +68,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="About Us | ASTRA 360 - Premium Digital Agency"
+        description="Learn about ASTRA 360, a premium digital agency dedicated to building exceptional web experiences. 100+ projects delivered, 50+ happy clients, 5+ years of experience."
+        canonical="https://astra360.com/about"
+      />
       <Navigation />
       <main ref={sectionRef}>
         {/* Hero */}
@@ -78,7 +85,7 @@ const About = () => {
               <h1 className="text-display font-semibold text-foreground mb-8 animate-fade-up-delay-1">
                 We craft digital
                 <br />
-                <span className="text-gradient">Excellence.</span>
+                <span className="text-gradient">excellence.</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-up-delay-2">
                 A premium digital agency dedicated to building exceptional web experiences that transform brands and drive measurable growth.
@@ -97,7 +104,9 @@ const About = () => {
                   className="reveal text-center"
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">{stat.number}</p>
+                  <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">
+                    <Counter end={stat.value} suffix={stat.suffix} duration={2000} />
+                  </p>
                   <p className="text-sm text-primary-foreground/70">{stat.label}</p>
                 </div>
               ))}
@@ -114,7 +123,7 @@ const About = () => {
                   Our Story
                 </span>
                 <h2 className="text-headline font-semibold text-foreground mb-8">
-                  From vision to <span className="text-gradient">Reality.</span>
+                  From vision to <span className="text-gradient">reality.</span>
                 </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                   Astra 360 was founded with a singular vision: to bridge the gap between creative ambition and technical execution. We saw too many brands struggling with fragmented digital solutions and set out to create something different.
@@ -128,7 +137,7 @@ const About = () => {
                   Our Philosophy
                 </span>
                 <h2 className="text-headline font-semibold text-foreground mb-8">
-                  Simplicity meets <span className="text-gradient">Power.</span>
+                  Simplicity meets <span className="text-gradient">power.</span>
                 </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                   We believe in the power of simplicity. In a world of noise, clarity wins. That's why we focus on creating clean, purposeful solutions that communicate effectively and perform flawlessly.
@@ -149,7 +158,7 @@ const About = () => {
                 Our Values
               </span>
               <h2 className="text-headline font-semibold text-foreground">
-                What drives us <span className="text-gradient">Forward.</span>
+                What drives us <span className="text-gradient">forward.</span>
               </h2>
             </div>
 
@@ -183,7 +192,7 @@ const About = () => {
                 Our Journey
               </span>
               <h2 className="text-headline font-semibold text-foreground">
-                Growing <span className="text-gradient">Together.</span>
+                Growing <span className="text-gradient">together.</span>
               </h2>
             </div>
 
@@ -228,7 +237,7 @@ const About = () => {
                   Why Astra 360
                 </span>
                 <h2 className="text-headline font-semibold text-foreground mb-6">
-                  What sets us <span className="text-gradient">Apart.</span>
+                  What sets us <span className="text-gradient">apart.</span>
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   We combine technical expertise with creative thinking to deliver solutions that not only look stunning but also perform exceptionally. Every project is an opportunity to exceed expectations.
