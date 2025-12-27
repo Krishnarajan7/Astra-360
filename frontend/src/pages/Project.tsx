@@ -19,6 +19,85 @@ const projectsData: Record<string, {
   team: string;
   services: string[];
 }> = {
+  // Web Development Projects from Krish's Portfolio
+  "mimacademy": {
+    id: "mimacademy",
+    title: "MiM Academy",
+    category: "Web Development",
+    description: "Educational platform for music instruction and learning",
+    fullDescription: "MiM Academy is a comprehensive educational platform designed for music instruction. The platform features course management, student tracking, interactive lessons, and a modern user interface that makes learning music accessible and engaging.",
+    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200&auto=format&fit=crop",
+    results: ["500+ active students", "98% satisfaction rate", "50+ courses available"],
+    client: "MiM Academy",
+    year: "2024",
+    team: "4 specialists",
+    services: ["Web Development", "UI/UX Design", "Learning Management System"]
+  },
+  "eduverse": {
+    id: "eduverse",
+    title: "EduVerse",
+    category: "Web Development",
+    description: "Next-generation e-learning platform with immersive experiences",
+    fullDescription: "EduVerse is an innovative e-learning platform that combines modern web technologies with engaging educational content. Features include interactive courses, progress tracking, gamification elements, and a seamless user experience across devices.",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&auto=format&fit=crop",
+    results: ["10K+ users", "4.8 star rating", "200+ courses"],
+    client: "EduVerse Inc.",
+    year: "2024",
+    team: "5 specialists",
+    services: ["Web Development", "E-Learning Platform", "UI/UX Design"]
+  },
+  "growvest-academy": {
+    id: "growvest-academy",
+    title: "Growvest Academy",
+    category: "Web Development",
+    description: "Financial education platform for investment learning",
+    fullDescription: "Growvest Academy is a specialized platform for financial education, helping users learn about investments, trading, and wealth management. The platform features structured courses, real-time market data integration, and personalized learning paths.",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop",
+    results: ["5K+ investors trained", "85% course completion", "Award-winning curriculum"],
+    client: "Growvest",
+    year: "2024",
+    team: "4 specialists",
+    services: ["Web Development", "Financial Tools", "Educational Platform"]
+  },
+  "phoenix-data-consulting": {
+    id: "phoenix-data-consulting",
+    title: "Phoenix Data Consulting",
+    category: "Web Development",
+    description: "Professional consulting firm website with modern design",
+    fullDescription: "A sophisticated corporate website for Phoenix Data Consulting, featuring an elegant design that communicates professionalism and expertise. The site includes service showcases, case studies, team profiles, and an integrated contact system.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop",
+    results: ["150% lead increase", "40% lower bounce rate", "Professional brand image"],
+    client: "Phoenix Data Consulting",
+    year: "2023",
+    team: "3 specialists",
+    services: ["Web Development", "Corporate Design", "SEO Optimization"]
+  },
+  "space-portfolio": {
+    id: "space-portfolio",
+    title: "Space Portfolio",
+    category: "Web Development",
+    description: "Creative portfolio website with space-themed design",
+    fullDescription: "A visually stunning portfolio website featuring a space-themed design with immersive animations and 3D elements. The site showcases creative work through an engaging, interactive experience that leaves a lasting impression.",
+    image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&auto=format&fit=crop",
+    results: ["Unique visual identity", "Featured on Awwwards", "95% positive feedback"],
+    client: "Creative Studio",
+    year: "2024",
+    team: "3 specialists",
+    services: ["Web Development", "Creative Design", "3D Animations"]
+  },
+  "halleyshop": {
+    id: "halleyshop",
+    title: "HalleyShop",
+    category: "Web Development",
+    description: "Modern e-commerce platform with seamless shopping experience",
+    fullDescription: "HalleyShop is a full-featured e-commerce platform built for performance and conversion. Features include product catalogs, shopping cart, secure checkout, order management, and a responsive design optimized for all devices.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop",
+    results: ["50% conversion increase", "10K+ products", "99.9% uptime"],
+    client: "HalleyShop",
+    year: "2024",
+    team: "5 specialists",
+    services: ["E-commerce Development", "Payment Integration", "UI/UX Design"]
+  },
   "ecommerce-platform": {
     id: "ecommerce-platform",
     title: "E-commerce Platform",
