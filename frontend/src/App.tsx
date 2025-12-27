@@ -16,6 +16,8 @@ import { ExpandableChatDemo } from "./components/ExpandableChatDemo";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieConsent } from "@/components/ui/cookie-consent";
 import { FloatingActionButton } from "@/components/FloatingActionButton";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +37,8 @@ const App = () => (
             <Route path="/work/:categoryId" element={<WorkCategory />} />
             <Route path="/project/:projectId" element={<Project />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent showDelay={3000} autoHideDelay={15000} />

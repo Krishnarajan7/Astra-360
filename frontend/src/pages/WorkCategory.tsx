@@ -26,25 +26,46 @@ const categoriesData: Record<string, {
     description: "Custom web solutions built with cutting-edge technologies for exceptional performance and user experience.",
     projects: [
       {
-        id: "ecommerce-platform",
-        title: "E-commerce Platform",
-        description: "Enterprise-level e-commerce solution with advanced features",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop",
-        results: ["60% conversion increase", "2M+ monthly visitors"]
+        id: "mimacademy",
+        title: "MiMacademy",
+        description: "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
+        image: "https://krish-dev-portfolio.netlify.app/assets/images/MiMacademy.png",
+        results: ["UK-based client", "Clean UI/UX"]
       },
       {
-        id: "saas-dashboard",
-        title: "SaaS Dashboard",
-        description: "Real-time analytics dashboard for enterprise clients",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop",
-        results: ["40% engagement boost", "50% faster loads"]
+        id: "eduverse",
+        title: "EduVerse",
+        description: "Full-stack ERP system built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
+        image: "https://krish-dev-portfolio.netlify.app/assets/images/EduVerse.png",
+        results: ["Full-Stack ERP", "Django + React"]
       },
       {
-        id: "corporate-website",
-        title: "Corporate Website",
-        description: "Modern corporate presence with exceptional performance",
-        image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&auto=format&fit=crop",
-        results: ["85% brand recognition", "3x traffic growth"]
+        id: "growvest-academy",
+        title: "Growvest Academy",
+        description: "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL.",
+        image: "https://krish-dev-portfolio.netlify.app/assets/images/grovvest.png",
+        results: ["Payment Integration", "PostgreSQL Backend"]
+      },
+      {
+        id: "phoenix-data-consulting",
+        title: "Phoenix Data Consulting",
+        description: "Phoenix Data Consulting is a Next Gen IT solutions provider, built with React, Tailwind CSS, and Shadcn UI to deliver a modern, responsive, and accessible web experience.",
+        image: "https://krish-dev-portfolio.netlify.app/assets/images/phoenix.png",
+        results: ["IT Solutions", "Shadcn UI"]
+      },
+      {
+        id: "space-portfolio",
+        title: "Space Portfolio",
+        description: "Personal portfolio built with React, Tailwind CSS, and JavaScript, featuring a sleek, space-inspired design with responsive UI and smooth animations.",
+        image: "https://krish-dev-portfolio.netlify.app/assets/images/Portfolio.png",
+        results: ["Space-inspired", "Smooth Animations"]
+      },
+      {
+        id: "halleyshop",
+        title: "HalleyShop",
+        description: "Modern e-commerce platform with role-based access for customers and admins, secure authentication, and customer management. Built with Node.js, Express, Prisma, and JWT.",
+        image: "https://krish-dev-portfolio.netlify.app/assets/images/halley.png",
+        results: ["Role-based Access", "Prisma + JWT"]
       }
     ]
   },

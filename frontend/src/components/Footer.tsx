@@ -70,12 +70,12 @@ export const Footer = () => {
             © {new Date().getFullYear()} Astra 360. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-primary-foreground/40 hover:text-primary-foreground/80 transition-colors">
+            <Link to="/privacy" className="text-sm text-primary-foreground/40 hover:text-primary-foreground/80 transition-colors">
               Privacy
-            </a>
-            <a href="#" className="text-sm text-primary-foreground/40 hover:text-primary-foreground/80 transition-colors">
+            </Link>
+            <Link to="/terms" className="text-sm text-primary-foreground/40 hover:text-primary-foreground/80 transition-colors">
               Terms
-            </a>
+            </Link>
           </div>
         </div>
         {/* Creator Credit */}
