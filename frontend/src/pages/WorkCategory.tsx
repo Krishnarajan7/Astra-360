@@ -29,35 +29,35 @@ const categoriesData: Record<string, {
         id: "mimacademy",
         title: "MiMacademy",
         description: "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
-        image: "https://krish-dev-portfolio.netlify.app/assets/images/MiMacademy.png",
+        image: "/mimacademy.png",
         results: ["UK-based client", "Clean UI/UX"]
       },
       {
         id: "eduverse",
         title: "EduVerse",
         description: "Full-stack ERP system built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
-        image: "https://krish-dev-portfolio.netlify.app/assets/images/EduVerse.png",
+        image: "/eduverse.png",
         results: ["Full-Stack ERP", "Django + React"]
       },
       {
         id: "growvest-academy",
         title: "Growvest Academy",
         description: "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL.",
-        image: "https://krish-dev-portfolio.netlify.app/assets/images/grovvest.png",
+        image: "/growvest.png",
         results: ["Payment Integration", "PostgreSQL Backend"]
       },
       {
         id: "phoenix-data-consulting",
         title: "Phoenix Data Consulting",
         description: "Phoenix Data Consulting is a Next Gen IT solutions provider, built with React, Tailwind CSS, and Shadcn UI to deliver a modern, responsive, and accessible web experience.",
-        image: "https://krish-dev-portfolio.netlify.app/assets/images/phoenix.png",
+        image: "/pdc.png",
         results: ["IT Solutions", "Shadcn UI"]
       },
       {
         id: "space-portfolio",
         title: "Space Portfolio",
         description: "Personal portfolio built with React, Tailwind CSS, and JavaScript, featuring a sleek, space-inspired design with responsive UI and smooth animations.",
-        image: "https://krish-dev-portfolio.netlify.app/assets/images/Portfolio.png",
+        image: "/krishportfolio.png",
         results: ["Space-inspired", "Smooth Animations"]
       },
       {

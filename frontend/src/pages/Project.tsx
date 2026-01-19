@@ -22,29 +22,37 @@ const projectsData: Record<string, {
   // Web Development Projects from Krish's Portfolio
   "mimacademy": {
     id: "mimacademy",
-    title: "MiM Academy",
+    title: (
+    <>
+      MiM <span className="text-gradient">Academy</span>
+    </>
+  ),
     category: "Web Development",
     description: "Educational platform for music instruction and learning",
-    fullDescription: "MiM Academy is a comprehensive educational platform designed for music instruction. The platform features course management, student tracking, interactive lessons, and a modern user interface that makes learning music accessible and engaging.",
-    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=1200&auto=format&fit=crop",
-    results: ["500+ active students", "98% satisfaction rate", "50+ courses available"],
+    fullDescription: "MiM Academy is a comprehensive educational platform designed for academic and career potential with personalized guidance. This platform provides comprehensive coaching for students, professional and parents",
+    image: "/mimacademy.png",
+    results: ["250+ active students", "98% satisfaction rate", "25+ courses available"],
     client: "MiM Academy",
-    year: "2024",
-    team: "4 specialists",
+    year: "2025",
+    team: "1 specialist",
     services: ["Web Development", "UI/UX Design", "Learning Management System"]
   },
   "eduverse": {
     id: "eduverse",
-    title: "EduVerse",
+    title: (
+      <>
+        Edu<span className="text-gradient">Verse</span>
+      </>
+    ),
     category: "Web Development",
-    description: "Next-generation e-learning platform with immersive experiences",
-    fullDescription: "EduVerse is an innovative e-learning platform that combines modern web technologies with engaging educational content. Features include interactive courses, progress tracking, gamification elements, and a seamless user experience across devices.",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&auto=format&fit=crop",
-    results: ["10K+ users", "4.8 star rating", "200+ courses"],
+    description: "Next-generation ERP system for educational institutions",
+    fullDescription: "EduVerse is an innovative ERP system tailored for educational institutions, streamlining administrative tasks, student management, and communication. The platform offers a user-friendly interface, real-time analytics, and seamless integration with existing systems.",
+    image: "/eduverse.png",
+    results: ["5K+ users", "4.8 star rating", "50% time savings on admin tasks"],
     client: "EduVerse Inc.",
     year: "2024",
-    team: "5 specialists",
-    services: ["Web Development", "E-Learning Platform", "UI/UX Design"]
+    team: "1 specialists",
+    services: ["Web Development", "ERP System", "SaaS Platform"]
   },
   "growvest-academy": {
     id: "growvest-academy",
