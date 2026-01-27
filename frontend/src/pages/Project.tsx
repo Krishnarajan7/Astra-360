@@ -20,6 +20,66 @@ const projectsData: Record<string, {
   services: string[];
 }> = {
   // Web Development Projects from Krish's Portfolio
+  "bestpracticeway": {
+  id: "bestpracticeway",
+  title: (
+    <>
+      Best<span className="text-gradient">PracticeWay</span>
+    </>
+  ),
+  category: "EdTech Platform",
+  description: "Full-stack English learning platform",
+  fullDescription:
+    "BestPractice Way is a full-stack English learning platform focused on improving English communication skills through Speaking, Writing, Listening, Reading, and Mail-based practice modules. It delivers structured learning paths, real-world exercises, and performance tracking with a learner-centric experience.",
+  image: "/bestpracticeway.png",
+  results: [
+    "Multi-module English skill development",
+    "Real-world communication practice",
+    "Scalable full-stack architecture"
+  ],
+  client: "BestPractice Way",
+  year: "2026",
+  team: "Solo Developer",
+  services: [
+    "Web Development",
+    "EdTech Platform",
+    "Language Learning System"
+  ]
+},
+  "eduverse": {
+    id: "eduverse",
+    title: (
+      <>
+        Edu<span className="text-gradient">Verse</span>
+      </>
+    ),
+    category: "Web Development",
+    description: "Next-generation ERP system for educational institutions",
+    fullDescription: "EduVerse is an innovative ERP system tailored for educational institutions, streamlining administrative tasks, student management, and communication. The platform offers a user-friendly interface, real-time analytics, and seamless integration with existing systems.",
+    image: "/eduverse.png",
+    results: ["5K+ users", "4.8 star rating", "50% time savings on admin tasks"],
+    client: "EduVerse Inc.",
+    year: "2026",
+    team: "Solo Developer",
+    services: ["Web Development", "ERP System", "SaaS Platform"]
+  },
+  "growvest-academy": {
+    id: "growvest-academy",
+    title: (
+      <>
+        Growvest <span className="text-gradient">Academy</span>
+      </>
+    ),
+    category: "Web Development",
+    description: "Financial education platform for investment learning",
+    fullDescription: "Growvest Academy is a specialized platform for financial education, helping users learn about investments, trading, and wealth management. The platform features structured courses, real-time market data integration, and personalized learning paths.",
+    image: "/growvest.png",
+    results: ["5K+ investors trained", "85% course completion", "Award-winning curriculum"],
+    client: "Growvest",
+    year: "2025",
+    team: "Solo Developer",
+    services: ["Web Development", "Financial Tools", "Educational Platform"]
+  },
   "mimacademy": {
     id: "mimacademy",
     title: (
@@ -37,47 +97,19 @@ const projectsData: Record<string, {
     team: "1 specialist",
     services: ["Web Development", "UI/UX Design", "Learning Management System"]
   },
-  "eduverse": {
-    id: "eduverse",
-    title: (
-      <>
-        Edu<span className="text-gradient">Verse</span>
-      </>
-    ),
-    category: "Web Development",
-    description: "Next-generation ERP system for educational institutions",
-    fullDescription: "EduVerse is an innovative ERP system tailored for educational institutions, streamlining administrative tasks, student management, and communication. The platform offers a user-friendly interface, real-time analytics, and seamless integration with existing systems.",
-    image: "/eduverse.png",
-    results: ["5K+ users", "4.8 star rating", "50% time savings on admin tasks"],
-    client: "EduVerse Inc.",
-    year: "2024",
-    team: "1 specialists",
-    services: ["Web Development", "ERP System", "SaaS Platform"]
-  },
-  "growvest-academy": {
-    id: "growvest-academy",
-    title: "Growvest Academy",
-    category: "Web Development",
-    description: "Financial education platform for investment learning",
-    fullDescription: "Growvest Academy is a specialized platform for financial education, helping users learn about investments, trading, and wealth management. The platform features structured courses, real-time market data integration, and personalized learning paths.",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop",
-    results: ["5K+ investors trained", "85% course completion", "Award-winning curriculum"],
-    client: "Growvest",
-    year: "2024",
-    team: "4 specialists",
-    services: ["Web Development", "Financial Tools", "Educational Platform"]
-  },
+  
+
   "phoenix-data-consulting": {
     id: "phoenix-data-consulting",
     title: "Phoenix Data Consulting",
     category: "Web Development",
     description: "Professional consulting firm website with modern design",
     fullDescription: "A sophisticated corporate website for Phoenix Data Consulting, featuring an elegant design that communicates professionalism and expertise. The site includes service showcases, case studies, team profiles, and an integrated contact system.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&fit=crop",
+    image: "/pdc.png",
     results: ["150% lead increase", "40% lower bounce rate", "Professional brand image"],
     client: "Phoenix Data Consulting",
-    year: "2023",
-    team: "3 specialists",
+    year: "2025",
+    team: "2 Specialists",
     services: ["Web Development", "Corporate Design", "SEO Optimization"]
   },
   "space-portfolio": {
@@ -89,8 +121,8 @@ const projectsData: Record<string, {
     image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&auto=format&fit=crop",
     results: ["Unique visual identity", "Featured on Awwwards", "95% positive feedback"],
     client: "Creative Studio",
-    year: "2024",
-    team: "3 specialists",
+    year: "2025",
+    team: "Solo Developer",
     services: ["Web Development", "Creative Design", "3D Animations"]
   },
   "halleyshop": {
@@ -99,7 +131,7 @@ const projectsData: Record<string, {
     category: "Web Development",
     description: "Modern e-commerce platform with seamless shopping experience",
     fullDescription: "HalleyShop is a full-featured e-commerce platform built for performance and conversion. Features include product catalogs, shopping cart, secure checkout, order management, and a responsive design optimized for all devices.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop",
+    image: "halleyshop.png",
     results: ["50% conversion increase", "10K+ products", "99.9% uptime"],
     client: "HalleyShop",
     year: "2024",

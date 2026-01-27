@@ -33,6 +33,13 @@ const categoriesData: Record<string, {
         results: ["UK-based client", "Clean UI/UX"]
       },
       {
+        id: "bestpracticeway",
+        title: "BestPracticeWay",
+        description: "BestPractice Way is a full-stack English learning platform designed to improve communication skills across Speaking, Writing, Listening, Reading, and Mail-based practice modules. Built with a scalable architecture and learner-focused UX.",
+        image: "/bestpracticeway.png",
+        results: ["Full-Stack English Learning", "Scalable Architecture"]
+      },
+      {
         id: "eduverse",
         title: "EduVerse",
         description: "Full-stack ERP system built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
@@ -64,7 +71,7 @@ const categoriesData: Record<string, {
         id: "halleyshop",
         title: "HalleyShop",
         description: "Modern e-commerce platform with role-based access for customers and admins, secure authentication, and customer management. Built with Node.js, Express, Prisma, and JWT.",
-        image: "https://krish-dev-portfolio.netlify.app/assets/images/halley.png",
+        image: "/halleyshop.png",
         results: ["Role-based Access", "Prisma + JWT"]
       }
     ]
