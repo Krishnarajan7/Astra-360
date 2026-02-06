@@ -115,7 +115,7 @@ const Contact = () => {
       <SEOHead 
         title="Contact Us | ASTRA 360 - Get In Touch"
         description="Ready to start your project? Contact ASTRA 360 today. We respond within 24 hours. Let's create something exceptional together."
-        canonical="https://astra360.com/contact"
+        canonical="https://360astra.io/"
       />
       <Navigation />
       <main ref={sectionRef}>
@@ -232,13 +232,13 @@ const Contact = () => {
                     </h3>
                     <div className="space-y-6">
                       <a
-                        href="mailto:hello@astra360.com"
+                        href="mailto:info@360astra.io"
                         className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors group"
                       >
                         <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                           <Mail className="w-5 h-5" />
                         </div>
-                        <span>hello@astra360.com</span>
+                        <span>info@360astra.io</span>
                       </a>
                       <div className="flex items-center gap-4 text-muted-foreground">
                         <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">

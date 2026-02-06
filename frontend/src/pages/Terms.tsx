@@ -8,7 +8,7 @@ const Terms = () => {
       <SEOHead 
         title="Terms of Service | ASTRA 360"
         description="Read ASTRA 360's terms of service to understand the rules and regulations governing the use of our services."
-        canonical="https://astra360.com/terms"
+        canonical="https://360astra.io/"
       />
       <Navigation />
       <main>

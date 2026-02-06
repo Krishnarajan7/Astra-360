@@ -25,55 +25,71 @@ const categoriesData: Record<string, {
   ),
     description: "Custom web solutions built with cutting-edge technologies for exceptional performance and user experience.",
     projects: [
-      {
-        id: "mimacademy",
-        title: "MiMacademy",
-        description: "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
-        image: "/mimacademy.png",
-        results: ["UK-based client", "Clean UI/UX"]
+
+         {
+        id: "mimcraftlab",
+        title: "MiM Craft Lab",
+        description: "MiM Craft Lab is a custom 3D printing e-commerce platform built for a UK-based client, enabling users to order personalized products with precision and flexibility. The platform focuses on performance, scalability, and a modern shopping experience tailored for custom manufacturing workflows.",
+        image: "/images/mimcraft.png",
+        results: ["Custom 3D Printing", "E-commerce Platform"]
       },
+      
       {
         id: "bestpracticeway",
         title: "BestPracticeWay",
         description: "BestPractice Way is a full-stack English learning platform designed to improve communication skills across Speaking, Writing, Listening, Reading, and Mail-based practice modules. Built with a scalable architecture and learner-focused UX.",
-        image: "/bestpracticeway.png",
+        image: "/images/bestpracticeway.png",
         results: ["Full-Stack English Learning", "Scalable Architecture"]
       },
       {
         id: "eduverse",
         title: "EduVerse",
         description: "Full-stack ERP system built using Python (Django REST API) for the backend and React with Tailwind CSS for the frontend.",
-        image: "/eduverse.png",
+        image: "/images/eduverse.png",
         results: ["Full-Stack ERP", "Django + React"]
       },
       {
         id: "growvest-academy",
         title: "Growvest Academy",
         description: "A modern educational platform that teaches mutual fund investing and personal finance, built with React, Node.js, Tailwind CSS, and PostgreSQL.",
-        image: "/growvest.png",
+        image: "/images/growvest.png",
         results: ["Payment Integration", "PostgreSQL Backend"]
+      },
+      {
+        id: "mimacademy",
+        title: "MiMacademy",
+        description: "A modern, responsive website for MiM Academy — a UK-based coaching institute. Built with clean UI/UX practices to showcase courses, testimonials, and contact information.",
+        image: "/images/mimacademy.png",
+        results: ["UK-based client", "Clean UI/UX"]
       },
       {
         id: "phoenix-data-consulting",
         title: "Phoenix Data Consulting",
         description: "Phoenix Data Consulting is a Next Gen IT solutions provider, built with React, Tailwind CSS, and Shadcn UI to deliver a modern, responsive, and accessible web experience.",
-        image: "/pdc.png",
+        image: "/images/pdc.png",
         results: ["IT Solutions", "Shadcn UI"]
       },
       {
         id: "space-portfolio",
         title: "Space Portfolio",
         description: "Personal portfolio built with React, Tailwind CSS, and JavaScript, featuring a sleek, space-inspired design with responsive UI and smooth animations.",
-        image: "/krishportfolio.png",
+        image: "/images/krishportfolio.png",
         results: ["Space-inspired", "Smooth Animations"]
       },
       {
         id: "halleyshop",
         title: "HalleyShop",
         description: "Modern e-commerce platform with role-based access for customers and admins, secure authentication, and customer management. Built with Node.js, Express, Prisma, and JWT.",
-        image: "/halleyshop.png",
+        image: "/images/halleyshop.png",
         results: ["Role-based Access", "Prisma + JWT"]
-      }
+      },
+      {
+      id: "rightchoice-trust",
+      title: "RightChoice Trust",
+      description: "Right Choice is built using modern web technologies like HTML, CSS, and JavaScript, ensuring a fast and responsive user experience.",
+      image: "/images/Rightchoice.png",
+      results: ["Modern Web Tech", "Responsive Design"] 
+      },
     ]
   },
   "digital-marketing": {

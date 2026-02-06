@@ -97,7 +97,42 @@ const projectsData: Record<string, {
     team: "1 specialist",
     services: ["Web Development", "UI/UX Design", "Learning Management System"]
   },
-  
+
+  "mimcraftlab": {
+    id: "mimcraftlab",
+    title: (
+      <>
+        MiM <span className="text-gradient">Craft Lab</span>
+      </>
+    ),
+    category: "Web Development",
+    description: "Custom 3D printing e-commerce platform",
+    fullDescription: "MiM Craft Lab is a custom 3D printing e-commerce platform built for a UK-based client, enabling users to order personalized products with precision and flexibility. The platform focuses on performance, scalability, and a modern shopping experience tailored for custom manufacturing workflows.",
+    image: "/images/mimcraft.png",
+    results: ["Custom 3D Printing", "E-commerce Platform"],
+    client: "MiM Craft Lab",
+    year: "2026",
+    team: "1 specialist",
+    services: ["Web Development", "E-commerce Platform", "3D Printing Integration"]
+  },
+
+  "rightchoice-trust": {
+    id: "rightchoice-trust",
+    title: (
+      <>
+        RightChoice <span className="text-gradient">Trust</span>
+      </>
+    ),
+    category: "Web Development",
+    description: "Modern website for RightChoice Trust with responsive design",
+    fullDescription: "RightChoice Trust is a modern, responsive website built using cutting-edge web technologies. The site features a clean, professional design that enhances user experience and accessibility across all devices.",
+    image: "/images/Rightchoice.png",
+    results: ["Responsive Design", "Fast Loading", "Modern UI"],
+    client: "RightChoice Trust",
+    year: "2025",
+    team: "Solo Developer",
+    services: ["Web Development", "Responsive Design", "Modern UI"]
+  },
 
   "phoenix-data-consulting": {
     id: "phoenix-data-consulting",

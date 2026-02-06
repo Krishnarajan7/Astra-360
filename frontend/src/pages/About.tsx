@@ -37,12 +37,12 @@ const stats = [
 ];
 
 const milestones = [
-  { year: "2019", title: "Founded", description: "Started with a vision to bridge creativity and technology" },
-  { year: "2020", title: "First Major Client", description: "Landed our first enterprise partnership" },
-  { year: "2021", title: "Team Expansion", description: "Grew to 10+ talented professionals" },
-  { year: "2022", title: "100+ Projects", description: "Reached milestone of 100 successful projects" },
-  { year: "2023", title: "Full-Stack Agency", description: "Expanded services to include hosting & SEO" },
-  { year: "2024", title: "Global Reach", description: "Serving clients across 15+ countries" },
+  { year: "2024", title: "Founded", description: "Started with a vision to bridge creativity and technology" },
+  { year: "2024", title: "First Major Client", description: "Landed our first clothing brand partnership" },
+  { year: "2024", title: "Team Expansion", description: "Grew to 10+ talented professionals" },
+  { year: "2025", title: "25+ Projects", description: "Reached milestone of 25 successful projects" },
+  { year: "2025", title: "Full-Stack Agency", description: "Expanded services to include hosting & SEO" },
+  { year: "2025", title: "Global Reach", description: "Serving clients across 15+ countries" },
 ];
 
 const About = () => {
@@ -71,7 +71,7 @@ const About = () => {
       <SEOHead 
         title="About Us | ASTRA 360 - Premium Digital Agency"
         description="Learn about ASTRA 360, a premium digital agency dedicated to building exceptional web experiences. 100+ projects delivered, 50+ happy clients, 5+ years of experience."
-        canonical="https://astra360.com/about"
+        canonical="https://360astra.io/"
       />
       <Navigation />
       <main ref={sectionRef}>
@@ -85,7 +85,7 @@ const About = () => {
               <h1 className="text-display font-semibold text-foreground mb-8 animate-fade-up-delay-1">
                 We craft digital
                 <br />
-                <span className="text-gradient">excellence.</span>
+                <span className="text-gradient">Excellence.</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-up-delay-2">
                 A premium digital agency dedicated to building exceptional web experiences that transform brands and drive measurable growth.

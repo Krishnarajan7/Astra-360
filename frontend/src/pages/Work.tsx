@@ -77,7 +77,7 @@ const Work = () => {
       <SEOHead 
         title="Our Work | ASTRA 360 - Portfolio & Case Studies"
         description="Explore our portfolio of successful projects. From web development to digital marketing campaigns, see how we deliver measurable results for ambitious brands."
-        canonical="https://astra360.com/work"
+        canonical="https://360astra.io/"
       />
       <Navigation />
       <main ref={sectionRef}>

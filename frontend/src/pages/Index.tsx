@@ -5,9 +5,65 @@ import { PortfolioFolders } from "@/components/PortfolioFolders";
 import { AboutSection } from "@/components/AboutSection";
 import { WorkSection } from "@/components/WorkSection";
 import { CTASection } from "@/components/CTASection";
+import { Pricing } from "@/components/ui/pricing";
 import { Footer } from "@/components/Footer";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { SEOHead } from "@/components/SEOHead";
+
+
+export const pricingPlans = [
+  {
+    name: "Static Website",
+    price: "2999",
+    features: [
+      "Up to 5 static pages (Home, About, Services, Gallery, Contact)",
+      "Mobile responsive design",
+      "Basic on-page SEO setup",
+      "Contact form / WhatsApp button integration",
+      "Domain & hosting setup support",
+    ],
+    description:
+      "Perfect for startups and local businesses that need a clean, fast, professional online presence.",
+    buttonText: "Get Static Website",
+    href: "/contact",
+    isPopular: false,
+  },
+  {
+    name: "E-commerce Website",
+    price: "19999",
+    features: [
+      "Up to 50 products setup",
+      "Modern storefront UI/UX",
+      "Categories, filters & search",
+      "Payment gateway (Razorpay / Paytm)",
+      "Order management dashboard",
+      "Coupons, discounts & GST invoicing (basic)",
+    ],
+    description:
+      "Best for brands that want to sell online with secure payments and smooth order management.",
+    buttonText: "Start Selling Online",
+    href: "/contact",
+    isPopular: true,
+  },
+  {
+    name: "Custom Solution",
+    price: "Custom",
+    features: [
+      "Fully custom features & workflows",
+      "Custom UI/UX design system",
+      "Scalable cloud-ready architecture",
+      "Advanced API integrations (CRM, ERP, Payments)",
+      "Performance optimization & security hardening",
+      "Dedicated account manager & priority support",
+    ],
+    description:
+      "For serious businesses that need fully custom platforms, portals, or high-scale solutions.",
+    buttonText: "Book a Strategy Call",
+    href: "/contact",
+    isPopular: false,
+  },
+];
+
 
 const Index = () => {
   return (
@@ -15,7 +71,7 @@ const Index = () => {
       <SEOHead 
         title="ASTRA 360 | Premium Digital Marketing & IT Solutions Agency"
         description="ASTRA 360 is a premium digital agency specializing in web development, SEO optimization, app development, and digital marketing. We build exceptional digital experiences that drive measurable growth."
-        canonical="https://astra360.com"
+        canonical="https://360astra.io/"
       />
       <Navigation />
       <main>
@@ -63,6 +119,7 @@ const Index = () => {
         <AboutSection />
         <WorkSection />
         <TestimonialsSection />
+        <Pricing plans={pricingPlans} />
         <CTASection />
       </main>
       <Footer />

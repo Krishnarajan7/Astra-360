@@ -80,7 +80,7 @@ export const Footer = () => {
         </div>
         {/* Creator Credit */}
         <div className="mt-6 pb-20 md:pb-0 text-center">
-          <p className="text-xs text-primary-foreground/30">
+          {/* <p className="text-xs text-primary-foreground/30">
             Cooked by{" "}
             <a 
               href="https://krish-dev-portfolio.netlify.app/" 
@@ -90,7 +90,7 @@ export const Footer = () => {
             >
               Krish🤍
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>

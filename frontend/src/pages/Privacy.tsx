@@ -8,7 +8,7 @@ const Privacy = () => {
       <SEOHead 
         title="Privacy Policy | ASTRA 360"
         description="Read ASTRA 360's privacy policy to understand how we collect, use, and protect your personal information."
-        canonical="https://astra360.com/privacy"
+        canonical="https://360astra.io/"
       />
       <Navigation />
       <main>

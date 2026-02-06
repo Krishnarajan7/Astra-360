@@ -147,7 +147,7 @@ const Services = () => {
       <SEOHead 
         title="Services | ASTRA 360 - Web Development, SEO & App Development"
         description="Explore our comprehensive digital services including custom web development, SEO optimization, app development, web hosting, UI/UX design, and digital marketing solutions."
-        canonical="https://astra360.com/services"
+        canonical="https://360astra.io/"
       />
       <Navigation />
       <main ref={sectionRef}>

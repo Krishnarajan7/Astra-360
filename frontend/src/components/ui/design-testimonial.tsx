@@ -6,24 +6,43 @@ import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion"
 
 const testimonials = [
-  {
-    quote: "Transformed our entire creative process overnight.",
-    author: "Sarah Chen",
-    role: "Design Director",
-    company: "Linear",
-  },
-  {
-    quote: "The most elegant solution we've ever implemented.",
-    author: "Marcus Webb",
-    role: "Creative Lead",
-    company: "Vercel",
-  },
-  {
-    quote: "Pure craftsmanship in every single detail.",
-    author: "Elena Frost",
-    role: "Head of Product",
-    company: "Stripe",
-  },
+ {
+  quote: "They completely transformed our online presence and lead quality within weeks.",
+  author: "",
+  role: "Founder",
+  company: "TechNova Solutions",
+},
+{
+  quote: "Clean design, clear communication, and timely delivery. Exactly what we needed.",
+  author: "Priya Nair",
+  role: "Marketing Manager",
+  company: "EduReach Institute",
+},
+{
+  quote: "Their attention to detail and understanding of our requirements was impressive.",
+  author: "Rohit Verma",
+  role: "Operations Head",
+  company: "Verma Industries",
+},
+{
+  quote: "A reliable team that delivers quality work without unnecessary complications.",
+  author: "Sneha Iyer",
+  role: "Product Manager",
+  company: "FinEdge Services",
+},
+{
+  quote: "From UI/UX to deployment, the entire process was smooth and professional.",
+  author: "Karthik R",
+  role: "Co-Founder",
+  company: "NextGen Startups",
+},
+// {
+//   quote: "They helped us modernize our website while keeping it simple for our audience.",
+//   author: "Dr. S. Balakrishnan",
+//   role: "Administrator",
+//   company: "EGS Educational Group",
+// },
+
 ]
 
 export function Testimonial() {

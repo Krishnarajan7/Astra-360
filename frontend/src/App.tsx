@@ -18,6 +18,7 @@ import { CookieConsent } from "@/components/ui/cookie-consent";
 import { FloatingActionButton } from "@/components/FloatingActionButton";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import { PixelCursorTrail } from "./components/ui/pixel-trail";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
           <CookieConsent showDelay={3000} autoHideDelay={15000} />
           <FloatingActionButton />
           <ExpandableChatDemo />
+          <PixelCursorTrail />
         </BrowserRouter>
       </SimpleToastProvider>
     </TooltipProvider>

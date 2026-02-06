@@ -1,28 +1,29 @@
 import { FloatingButton, FloatingButtonItem } from "@/components/ui/floating-button";
 import { cn } from "@/lib/utils";
-import { Mail, MessageCircle, Phone, PlusIcon } from "lucide-react";
+import { Mail, MessageCircle, Phone, PlusIcon, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const socialItems = [
   {
     icon: <Mail className="w-5 h-5" />,
     bgColor: 'bg-astra-teal',
-    href: 'mailto:hello@astra360.com',
+    href: 'mailto:info@360astra.com',
     label: 'Email'
   },
   {
     icon: <Phone className="w-5 h-5" />,
     bgColor: 'bg-astra-orange',
-    href: 'tel:+1234567890',
+    href: 'tel:+9345280327',
     label: 'Phone'
   },
-  {
-    icon: <MessageCircle className="w-5 h-5" />,
-    bgColor: 'bg-astra-purple',
-    href: '/contact',
-    label: 'Contact',
-    isInternal: true
-  }
+  
+ {
+  icon: <Instagram className="w-5 h-5 text-white" />,
+  bgColor: 'bg-astra-purple',
+  href: 'https://www.instagram.com/astra_._360?igsh=OXU0cmJ5dDNudzZu',
+  label: 'Instagram'
+}
+
 ];
 
 export function FloatingActionButton() {

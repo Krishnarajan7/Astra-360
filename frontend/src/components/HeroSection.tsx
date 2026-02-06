@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { TrustedBadge } from "./TrustedBadge";
 
 export const HeroSection = () => {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -38,12 +39,9 @@ export const HeroSection = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Tagline */}
+          {/* Trusted Badge */}
           <div className="animate-fade-up mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-sm text-muted-foreground">
-              <span className="w-2 h-2 bg-astra-teal rounded-full animate-pulse-slow" />
-              Digital Excellence, Redefined
-            </span>
+            <TrustedBadge />
           </div>
 
           {/* Main heading */}
