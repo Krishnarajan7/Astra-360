@@ -40,16 +40,27 @@ export const CTASection = () => {
             Let's create something extraordinary together. Tell us about your vision and we'll show you what's possible.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact" className="group">
-                Get in Touch
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button variant="heroOutline" size="lg" asChild>
-              <Link to="/services">Explore Services</Link>
-            </Button>
-          </div>
+  <Button variant="hero" size="lg" asChild>
+    <Link
+      to="/contact"
+      className="group"
+      aria-label="Get in touch with Astra 360 digital agency"
+    >
+      Get in Touch
+      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+    </Link>
+  </Button>
+
+  <Button variant="heroOutline" size="lg" asChild>
+    <Link
+      to="/services"
+      aria-label="Explore Astra 360 digital marketing and IT services"
+    >
+      Explore Services
+    </Link>
+  </Button>
+</div>
+
         </div>
       </div>
     </section>

@@ -52,13 +52,23 @@ export const AboutSection = () => {
             </p>
 
             <div className="reveal">
-              <Button variant="heroOutline" size="lg" asChild className="border-primary-foreground/20 text-primary-foreground hover:border-primary-foreground/40 hover:bg-primary-foreground/5">
-                <Link to="/about" className="group">
-                  Learn More
-                  <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </Button>
-            </div>
+  <Button
+    variant="heroOutline"
+    size="lg"
+    asChild
+    className="border-primary-foreground/20 text-primary-foreground hover:border-primary-foreground/40 hover:bg-primary-foreground/5"
+  >
+    <Link
+      to="/about"
+      className="group"
+      aria-label="Learn more about Astra 360 digital agency"
+    >
+      Learn More
+      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+    </Link>
+  </Button>
+</div>
+
           </div>
 
           {/* Right - Stats */}

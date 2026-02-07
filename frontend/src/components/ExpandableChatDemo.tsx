@@ -1,7 +1,13 @@
 "use client"
 
 import { useState, FormEvent } from "react"
-import { Send, BotMessageSquare, Paperclip, Mic, CornerDownLeft } from "lucide-react"
+import {
+  Send,
+  BotMessageSquare,
+  Paperclip,
+  Mic,
+  CornerDownLeft,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   ChatBubble,
@@ -18,9 +24,9 @@ import {
 import { ChatMessageList } from "@/components/ui/chat-message-list"
 
 interface Message {
-  id: number;
-  content: string;
-  sender: "user" | "ai";
+  id: number
+  content: string
+  sender: "user" | "ai"
 }
 
 export function ExpandableChatDemo() {
@@ -57,6 +63,7 @@ export function ExpandableChatDemo() {
         sender: "user",
       },
     ])
+
     setInput("")
     setIsLoading(true)
 
@@ -73,19 +80,17 @@ export function ExpandableChatDemo() {
     }, 1000)
   }
 
-  const handleAttachFile = () => {
-    // Handle file attachment
-  }
-
-  const handleMicrophoneClick = () => {
-    // Handle voice input
-  }
-
   return (
     <ExpandableChat
       position="bottom-left"
       size="md"
-      icon={<BotMessageSquare className="h-6 w-6" />}
+      icon={
+        <BotMessageSquare
+          className="h-6 w-6"
+          aria-hidden="true"
+        />
+      }
+      aria-label="Open chat assistant"
     >
       <ExpandableChatHeader>
         <div className="flex flex-col">
@@ -103,8 +108,10 @@ export function ExpandableChatDemo() {
               key={message.id}
               variant={message.sender === "user" ? "sent" : "received"}
             >
-              <ChatBubbleAvatar fallback={message.sender === "user" ? "US" : "AI"} />
-              <ChatBubbleMessage variant={message.sender === "user" ? "sent" : "received"}>
+              <ChatBubbleAvatar
+                fallback={message.sender === "user" ? "US" : "AI"}
+              />
+              <ChatBubbleMessage>
                 {message.content}
               </ChatBubbleMessage>
             </ChatBubble>
@@ -124,33 +131,43 @@ export function ExpandableChatDemo() {
           <ChatInput
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
+            placeholder="Type your message…"
+            aria-label="Chat message input"
             className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
           />
+
           <div className="flex items-center justify-between">
             <div className="flex gap-2">
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
-                onClick={handleAttachFile}
+                aria-label="Attach a file"
               >
-                <Paperclip className="h-4 w-4" />
+                <Paperclip className="h-4 w-4" aria-hidden="true" />
               </Button>
 
               <Button
                 type="button"
                 variant="ghost"
                 size="icon"
-                onClick={handleMicrophoneClick}
+                aria-label="Use microphone"
               >
-                <Mic className="h-4 w-4" />
+                <Mic className="h-4 w-4" aria-hidden="true" />
               </Button>
             </div>
 
-            <Button type="submit" size="sm" className="gap-1.5">
+            <Button
+              type="submit"
+              size="sm"
+              className="gap-1.5"
+              aria-label="Send message"
+            >
               Send Message
-              <CornerDownLeft className="h-3.5 w-3.5" />
+              <CornerDownLeft
+                className="h-3.5 w-3.5"
+                aria-hidden="true"
+              />
             </Button>
           </div>
         </form>

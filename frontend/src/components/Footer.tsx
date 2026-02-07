@@ -30,9 +30,9 @@ export const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider mb-6 opacity-60">
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-6 opacity-60">
               Navigation
-            </h4>
+            </h3>
             <ul className="space-y-4">
               {["About", "Services", "Work", "Contact"].map((item) => (
                 <li key={item}>

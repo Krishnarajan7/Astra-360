@@ -238,11 +238,14 @@ export function Testimonial() {
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           >
             {[...Array(10)].map((_, i) => (
-              <span className="mx-8 text-gradient text-sm">
-                  Build Trust • Process Driven • Craftsmanship • Long Term Vision •
-              </span>
+  <span
+    key={i}
+    className="mx-8 text-gradient text-sm"
+  >
+    Build Trust • Process Driven • Craftsmanship • Long Term Vision •
+  </span>
+))}
 
-            ))}
           </motion.div>
         </div>
       </div>
