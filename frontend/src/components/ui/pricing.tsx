@@ -176,16 +176,16 @@ export function Pricing({
 
                   {isNumericPrice && (
                     <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">
-                      / {plan.period}
+                      only{plan.period}
                     </span>
                   )}
                 </div>
 
-                {isNumericPrice && (
+                {/* {isNumericPrice && (
                   <p className="text-xs leading-5 text-muted-foreground">
                     {isMonthly ? "billed monthly" : "billed annually"}
                   </p>
-                )}
+                )} */}
 
                 <ul className="mt-5 gap-2 flex flex-col">
                   {plan.features.map((feature, idx) => (

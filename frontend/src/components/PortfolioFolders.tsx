@@ -51,7 +51,7 @@ const webDevProjects: ProjectPreview[] = [
 const portfolioData: FolderData[] = [
   {
     title: "Web Development",
-    projectCount: 9,
+    projectCount: 10,
     route: "/work/web-development",
     allPreviews: webDevProjects,
   },

@@ -80,18 +80,28 @@ export const Footer = () => {
         </div>
         {/* Creator Credit */}
         <div className="mt-6 pb-20 md:pb-0 text-center">
-          {/* <p className="text-xs text-primary-foreground/30">
-            Cooked by{" "}
-            <a 
-              href="https://krish-dev-portfolio.netlify.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="font-cursive text-base text-primary-foreground/60 hover:text-primary-foreground/90 transition-colors"
-            >
-              Krish🤍
-            </a>
-          </p> */}
-        </div>
+  <p className="text-xs text-primary-foreground/30">
+    Cooked by{" "}
+   <a
+  href="https://krish-dev-portfolio.netlify.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    font-signature
+    text-lg
+    text-primary-foreground/60
+    drop-shadow-[0_0.4px_0_currentColor]
+    hover:text-primary-foreground/90
+    transition-colors
+  "
+>
+  &nbsp;KriSh 🤍
+</a>
+
+
+  </p>
+</div>
+
       </div>
     </footer>
   );

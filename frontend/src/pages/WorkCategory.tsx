@@ -25,7 +25,15 @@ const categoriesData: Record<string, {
   ),
     description: "Custom web solutions built with cutting-edge technologies for exceptional performance and user experience.",
     projects: [
-
+        
+       {
+  id: "pranitha-portfolio",
+  title: "Pranitha Portfolio",
+  description: "A space-inspired portfolio website developed for a client using Vite + React and Tailwind CSS, featuring a sleek cosmic UI, smooth animations, and a fully responsive layout to showcase projects and skills.",
+  image: "/images/pranitha-portfolio.png",
+  results: ["Client Portfolio", "Space-Themed Design", "Responsive UI"]
+}
+,
          {
         id: "mimcraftlab",
         title: "MiM Craft Lab",

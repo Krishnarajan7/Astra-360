@@ -93,12 +93,12 @@ export const HeroSection = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-fade-up-delay-3">
+      {/* <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-fade-up-delay-3">
         <div className="flex flex-col items-center gap-2 text-muted-foreground">
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-muted-foreground/50 to-transparent" />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

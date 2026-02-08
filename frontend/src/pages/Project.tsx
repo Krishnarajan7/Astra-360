@@ -63,6 +63,33 @@ const projectsData: Record<string, {
     team: "Solo Developer",
     services: ["Web Development", "ERP System", "SaaS Platform"]
   },
+"pranitha-portfolio": {
+  id: "pranitha-portfolio",
+  title: (
+    <>
+      Pranitha<span className="text-gradient">Portfolio</span>
+    </>
+  ),
+  category: "Web Development",
+  description: "Space-inspired personal portfolio website",
+  fullDescription:
+    "Pranitha Portfolio is a visually striking, space-themed portfolio website developed for a client using Vite + React and Tailwind CSS. The site showcases projects, skills, and experience through a modern cosmic UI, smooth animations, and a fully responsive design, creating an engaging and professional online presence.",
+  image: "/images/pranitha-portfolio.png",
+  results: [
+    "Modern space-themed UI",
+    "Fully responsive design",
+    "Improved personal branding"
+  ],
+  client: "Pranitha",
+  year: "2026",
+  team: "Solo Developer",
+  services: [
+    "Web Development",
+    "UI/UX Design",
+    "Portfolio Website"
+  ]
+}
+,
   "growvest-academy": {
     id: "growvest-academy",
     title: (

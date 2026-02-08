@@ -18,6 +18,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+// ← Added this import
+import { contactApi } from "@/lib/api";
+
 const faqItems = [
   {
     id: "response",
@@ -45,20 +48,22 @@ const faqItems = [
   },
 ];
 
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
     message: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const sectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
   const { showToast } = useSimpleToast();
 
-  const handleRatingComplete = (rating) => {
+  const handleRatingComplete = (rating: number) => {
     const messages = [
       "We're sorry to hear that. We'll work to improve!",
       "Thanks for your feedback. We'll do better!",
@@ -87,20 +92,44 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
+  // ── Updated ── real API submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await contactApi.submitForm(formData);
 
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      toast({
+        title: "Message sent!",
+        description:
+          response.data?.message ||
+          "We'll get back to you within 24 hours.",
+      });
 
-    setFormData({ name: "", email: "", company: "", message: "" });
-    setIsSubmitting(false);
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        message: "",
+      });
+    } catch (error: any) {
+      // Laravel validation errors
+      if (error?.errors) {
+        Object.values(error.errors).forEach((messages: any) => {
+          showToast(messages[0], "error");
+        });
+      } else {
+        showToast(
+          error?.message || "Something went wrong. Please try again.",
+          "error"
+        );
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -112,7 +141,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
-      <SEOHead 
+      <SEOHead
         title="Contact Us | ASTRA 360 - Get In Touch"
         description="Ready to start your project? Contact ASTRA 360 today. We respond within 24 hours. Let's create something exceptional together."
         canonical="https://360astra.io/"
@@ -160,6 +189,7 @@ const Contact = () => {
                         className="h-12 rounded-xl border-border/50 bg-secondary/50 focus:bg-background transition-colors"
                       />
                     </div>
+
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium text-foreground">
                         Email
@@ -176,19 +206,39 @@ const Contact = () => {
                       />
                     </div>
                   </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium text-foreground">
+                      Phone number
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+1 (555) 123-4567"
+                      className="h-12 rounded-xl border-border/50 bg-secondary/50 focus:bg-background transition-colors"
+                    />
+                  </div>
+
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-medium text-foreground">
-                      Company
+                      Company / Project name
                     </label>
                     <Input
                       id="company"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Your company name"
+                      placeholder="Your company or project name"
                       className="h-12 rounded-xl border-border/50 bg-secondary/50 focus:bg-background transition-colors"
                     />
+                    <p className="text-xs text-muted-foreground mt-1.5">
+                      Optional — leave blank if you're an individual
+                    </p>
                   </div>
+
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-foreground">
                       Message
@@ -204,6 +254,7 @@ const Contact = () => {
                       className="rounded-xl border-border/50 bg-secondary/50 focus:bg-background transition-colors resize-none"
                     />
                   </div>
+
                   <Button
                     type="submit"
                     variant="hero"
