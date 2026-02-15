@@ -11,6 +11,7 @@ const projectsData: Record<string, {
   title: string;
   category: string;
   description: string;
+  projectUrl?: string;
   fullDescription: string;
   image: string;
   results: string[];
@@ -37,6 +38,7 @@ const projectsData: Record<string, {
     "Real-world communication practice",
     "Scalable full-stack architecture"
   ],
+  projectUrl: "https://bestpracticeway.com",
   client: "BestPractice Way",
   year: "2026",
   team: "Solo Developer",
@@ -59,6 +61,7 @@ const projectsData: Record<string, {
     image: "/eduverse.png",
     results: ["5K+ users", "4.8 star rating", "50% time savings on admin tasks"],
     client: "EduVerse Inc.",
+    projectUrl: "https://eduverse.com",
     year: "2026",
     team: "Solo Developer",
     services: ["Web Development", "ERP System", "SaaS Platform"]
@@ -75,6 +78,7 @@ const projectsData: Record<string, {
   fullDescription:
     "Pranitha Portfolio is a visually striking, space-themed portfolio website developed for a client using Vite + React and Tailwind CSS. The site showcases projects, skills, and experience through a modern cosmic UI, smooth animations, and a fully responsive design, creating an engaging and professional online presence.",
   image: "/images/pranitha-portfolio.png",
+  projectUrl: "https://laxmipranitha.netlify.app/",
   results: [
     "Modern space-themed UI",
     "Fully responsive design",
@@ -103,10 +107,30 @@ const projectsData: Record<string, {
     image: "/growvest.png",
     results: ["5K+ investors trained", "85% course completion", "Award-winning curriculum"],
     client: "Growvest",
+    projectUrl: "https://growvestaca.in",
     year: "2025",
     team: "Solo Developer",
     services: ["Web Development", "Financial Tools", "Educational Platform"]
   },
+  "tntpo": {
+  id: "tntpo",
+  title: (
+    <>
+      TNTPO <span className="text-gradient">Association</span>
+    </>
+  ),
+  category: "Web Development",
+  description: "Official website for Tamil Nadu Training and Placement Officers Association",
+  fullDescription: "The Tamil Nadu Training and Placement Officers Association (TNTPO) website is a professional platform designed to connect training and placement officers across Tamil Nadu. It showcases the association’s mission, objectives, member institutions, industry collaborations, and key initiatives through a clean and responsive interface.",
+  image: "/images/tntpo.png",
+  results: ["500+ member institutions", "38 districts covered", "1000+ TPO members", "50+ industry partners"],
+  client: "Tamil Nadu Training and Placement Officers Association",
+  year: "2026",
+  projectUrl: "https://tntpo.netlify.app/",
+  team: "Solo Developer",
+  services: ["Web Development", "Frontend Development", "Association Website"]
+}
+,
   "mimacademy": {
     id: "mimacademy",
     title: (
@@ -117,9 +141,10 @@ const projectsData: Record<string, {
     category: "Web Development",
     description: "Educational platform for music instruction and learning",
     fullDescription: "MiM Academy is a comprehensive educational platform designed for academic and career potential with personalized guidance. This platform provides comprehensive coaching for students, professional and parents",
-    image: "/mimacademy.png",
+    image: "/images/mimacademy.png",
     results: ["250+ active students", "98% satisfaction rate", "25+ courses available"],
     client: "MiM Academy",
+    projectUrl: "https://mimacademy.org",
     year: "2025",
     team: "1 specialist",
     services: ["Web Development", "UI/UX Design", "Learning Management System"]
@@ -138,6 +163,7 @@ const projectsData: Record<string, {
     image: "/images/mimcraft.png",
     results: ["Custom 3D Printing", "E-commerce Platform"],
     client: "MiM Craft Lab",
+    projectUrl: "https://mim-craftlab.netlify.app/",
     year: "2026",
     team: "1 specialist",
     services: ["Web Development", "E-commerce Platform", "3D Printing Integration"]
@@ -156,6 +182,7 @@ const projectsData: Record<string, {
     image: "/images/Rightchoice.png",
     results: ["Responsive Design", "Fast Loading", "Modern UI"],
     client: "RightChoice Trust",
+    projectUrl: "https://rightchoicetrust.com/",
     year: "2025",
     team: "Solo Developer",
     services: ["Web Development", "Responsive Design", "Modern UI"]
@@ -170,6 +197,7 @@ const projectsData: Record<string, {
     image: "/pdc.png",
     results: ["150% lead increase", "40% lower bounce rate", "Professional brand image"],
     client: "Phoenix Data Consulting",
+    projectUrl: "https://phoenixdataconsulting.in/",
     year: "2025",
     team: "2 Specialists",
     services: ["Web Development", "Corporate Design", "SEO Optimization"]
@@ -495,10 +523,19 @@ const Project = () => {
                   </div>
                 </div>
 
-                <Button className="w-full" size="lg">
-                  <ExternalLink className="mr-2 w-4 h-4" />
-                  View Live Project
-                </Button>
+                {project.projectUrl && (
+  <a
+    href={project.projectUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button className="w-full" size="lg">
+      <ExternalLink className="mr-2 w-4 h-4" />
+      View Live Project
+    </Button>
+  </a>
+)}
+
               </div>
             </div>
           </div>

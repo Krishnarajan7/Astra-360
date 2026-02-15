@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { UniqueAccordion } from "@/components/ui/interactive-accordion";
-import { Mail, MapPin, ArrowRight } from "lucide-react";
+import { Mail, MapPin, ArrowRight, Phone } from "lucide-react";
 import { RatingInteraction } from "@/components/ui/emoji-rating";
 import { useSimpleToast } from "@/components/ui/simple-toast";
 import { SEOHead } from "@/components/SEOHead";
@@ -291,6 +291,22 @@ const Contact = () => {
                         </div>
                         <span>info@360astra.io</span>
                       </a>
+                      <div className="flex items-center gap-4 text-muted-foreground">
+  {/* Left icon */}
+  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+    <Phone className="w-5 h-5" />
+  </div>
+
+  {/* Phone numbers */}
+  <div className="flex flex-col gap-1">
+    <a href="tel:9345280327" className="hover:underline">
+      9345280327
+    </a>
+    <a href="tel:8680861772" className="hover:underline">
+      8680861772
+    </a>
+  </div>
+</div>
                       <div className="flex items-center gap-4 text-muted-foreground">
                         <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
                           <MapPin className="w-5 h-5" />

@@ -14,6 +14,7 @@ const categoriesData: Record<string, {
     title: React.ReactNode;
     description: string;
     image: string;
+    projectUrl?: string;
     results: string[];
   }[];
 }> = {
@@ -41,12 +42,20 @@ const categoriesData: Record<string, {
         image: "/images/mimcraft.png",
         results: ["Custom 3D Printing", "E-commerce Platform"]
       },
-      
+      {
+  id: "tntpo",
+  title: "TNTPO",
+  description: "TNTPO is the official website of the Tamil Nadu Training and Placement Officers Association, built to connect training and placement professionals across the state. The platform highlights the association’s objectives, member institutions, industry partnerships, and key initiatives through a clean and accessible interface.",
+  image: "/images/tntpo.png",
+  results: ["Training & Placement Network", "Statewide Professional Association"]
+},
+
       {
         id: "bestpracticeway",
         title: "BestPracticeWay",
         description: "BestPractice Way is a full-stack English learning platform designed to improve communication skills across Speaking, Writing, Listening, Reading, and Mail-based practice modules. Built with a scalable architecture and learner-focused UX.",
         image: "/images/bestpracticeway.png",
+        projectUrl: "https://bestpracticeway.com",
         results: ["Full-Stack English Learning", "Scalable Architecture"]
       },
       {
