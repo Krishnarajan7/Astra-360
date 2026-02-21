@@ -10,6 +10,7 @@ import { Mail, MapPin, ArrowRight, Phone } from "lucide-react";
 import { RatingInteraction } from "@/components/ui/emoji-rating";
 import { useSimpleToast } from "@/components/ui/simple-toast";
 import { SEOHead } from "@/components/SEOHead";
+import RotatingEarth from "@/components/ui/wireframe-dotted-globe";
 import {
   Card,
   CardContent,
@@ -275,8 +276,8 @@ const Contact = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="reveal lg:pl-12">
-                <div className="space-y-12">
+            <div className="reveal lg:pl-12 flex flex-col">
+                <div className="space-y-12 mb-12">
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-6">
                       Contact Information
@@ -316,7 +317,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div>
+                  {/* <div>
                     <h3 className="text-xl font-semibold text-foreground mb-6">
                       What to Expect
                     </h3>
@@ -338,6 +339,10 @@ const Contact = () => {
                         <span>Transparent pricing with no surprises</span>
                       </li>
                     </ul>
+                  </div> */}
+                  <div className="flex flex-col items-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">Connecting clients globally</p>
+                  <RotatingEarth width={400} height={350} className="mx-auto" />
                   </div>
                 </div>
               </div>

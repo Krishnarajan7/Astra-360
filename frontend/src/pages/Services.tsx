@@ -110,15 +110,25 @@ const services = [
   },
 ];
 
-const techStack = [
-  { name: "React", category: "Frontend" },
-  { name: "Next.js", category: "Framework" },
-  { name: "TypeScript", category: "Language" },
-  { name: "Node.js", category: "Backend" },
-  { name: "PostgreSQL", category: "Database" },
-  { name: "AWS", category: "Cloud" },
-  { name: "Vercel", category: "Hosting" },
-  { name: "Figma", category: "Design" },
+type Tech = {
+  name: string;
+  category: string;
+  logo: string;
+};
+
+const techStack: Tech[] = [
+  { name: "React",       category: "Frontend",   logo: "/logos/react.png" },
+  { name: "Node.js",     category: "Backend",    logo: "/logos/node.png" },
+  { name: "Python",       category: "Backend",   logo: "/logos/python.png" },
+  { name: "PHP",       category: "Backend",   logo: "/logos/php.png" },
+  { name: "Django",       category: "Backend",   logo: "/logos/django.svg" },
+  { name: "Next.js",     category: "Framework",  logo: "/logos/nextjs.svg" },
+  { name: "TypeScript",  category: "Language",   logo: "/logos/typescript.png" },
+  { name: "PostgreSQL",  category: "Database",   logo: "/logos/postgres.png" },
+  { name: "AWS",         category: "Cloud",      logo: "/logos/aws.png" },
+  { name: "Hostinger",         category: "Hosting",      logo: "/logos/hostinger.svg" },
+  { name: "Vercel",      category: "Hosting",    logo: "/logos/vercel.svg" },
+  { name: "Figma",       category: "Design",     logo: "/logos/figma.png" },
 ];
 
 const Services = () => {
@@ -211,7 +221,7 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Tech Stack */}
+        {/* Tech Stack – Updated with Logos */}
         <section className="py-24 lg:py-32 bg-secondary/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center mb-16 reveal">
@@ -229,11 +239,17 @@ const Services = () => {
               {techStack.map((tech, index) => (
                 <div
                   key={tech.name}
-                  className="group p-6 rounded-2xl bg-background border border-border/50 hover:border-primary/30 hover:shadow-elegant transition-all duration-300 text-center"
+                  className="group p-6 rounded-2xl bg-background border border-border/50 hover:border-primary/30 hover:shadow-elegant transition-all duration-300 text-center flex flex-col items-center justify-center"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
-                  <p className="font-semibold text-foreground mb-1">{tech.name}</p>
-                  <p className="text-xs text-muted-foreground">{tech.category}</p>
+                  <img
+                    src={tech.logo}
+                    alt={`${tech.name} logo`}
+                    className="h-10 mx-auto mb-4 object-contain transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    {tech.category}
+                  </p>
                 </div>
               ))}
             </div>
