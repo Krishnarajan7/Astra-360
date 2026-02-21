@@ -10,3 +10,8 @@ Route::prefix('contact')->group(function () {
 
 // Optional: Get contact form status
 Route::get('/contact/status', [ContactController::class, 'status']);
+// Chatbot API Routes
+Route::post('/chatbot/message', [App\Http\Controllers\ChatbotController::class, 'sendMessage']);
+
+// Feedback API Routes
+Route::post('/feedback/submit', [App\Http\Controllers\FeedbackController::class, 'store']);
