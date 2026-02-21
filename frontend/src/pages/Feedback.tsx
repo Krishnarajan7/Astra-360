@@ -8,12 +8,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Star, Send, MessageSquare, ThumbsUp, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { feedbackApi } from "@/lib/api";
 
 const Feedback = () => {
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [role, setRole] = useState("");
   const [feedback, setFeedback] = useState("");
   const [category, setCategory] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,39 +30,77 @@ const Feedback = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    // Comprehensive Validation
     if (rating === 0) {
       toast({
-        title: "Please rate your experience",
-        description: "Select at least 1 star to submit your feedback.",
+        title: "Rating required",
+        description: "Please select at least 1 star.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!category) {
+      toast({
+        title: "Category required",
+        description: "Please select an area to comment on.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!name.trim() || !email.trim() || !company.trim() || !role.trim() || !feedback.trim()) {
+      toast({
+        title: "All fields are required",
+        description: "Please fill in all the details before submitting.",
         variant: "destructive",
       });
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Thank you for your feedback! 🎉",
-      description: "We appreciate you taking the time to help us improve.",
-    });
 
-    // Reset form
-    setRating(0);
-    setName("");
-    setEmail("");
-    setFeedback("");
-    setCategory(null);
-    setIsSubmitting(false);
+    try {
+      const response = await feedbackApi.submit({
+        rating,
+        category,
+        name,
+        email,
+        company,
+        role,
+        feedback,
+      });
+
+      toast({
+        title: "Success! 🎉",
+        description: response.data.message || "Thank you for your feedback!",
+      });
+
+      // Reset form
+      setRating(0);
+      setName("");
+      setEmail("");
+      setCompany("");
+      setRole("");
+      setFeedback("");
+      setCategory(null);
+
+    } catch (error: any) {
+      toast({
+        title: "Submission failed",
+        description: error.message || (error.response?.data?.message) || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6 lg:px-12 max-w-3xl">
           {/* Header */}
@@ -89,7 +130,7 @@ const Feedback = () => {
           >
             {/* Glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-2xl blur-xl opacity-50" />
-            
+
             <form
               onSubmit={handleSubmit}
               className="relative bg-card border border-border rounded-2xl p-8 md:p-10 space-y-8"
@@ -169,10 +210,10 @@ const Feedback = () => {
                 </div>
               </div>
 
-              {/* Name & Email */}
+              {/* Name, Email, Company, Role */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name (optional)</Label>
+                  <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
                     value={name}
@@ -181,14 +222,37 @@ const Feedback = () => {
                     className="bg-background/50"
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email (optional)</Label>
+                  <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
+                    className="bg-background/50"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="company">Company</Label>
+                  <Input
+                    id="company"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    placeholder="Your company name"
+                    className="bg-background/50"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="role">Role </Label>
+                  <Input
+                    id="role"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    placeholder="e.g. Founder, Designer, User"
                     className="bg-background/50"
                   />
                 </div>

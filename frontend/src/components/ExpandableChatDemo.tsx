@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, FormEvent } from "react"
+import { useState, useEffect, FormEvent, useRef } from "react"
 import {
   Send,
   BotMessageSquare,
@@ -26,58 +26,195 @@ import { ChatMessageList } from "@/components/ui/chat-message-list"
 interface Message {
   id: number
   content: string
-  sender: "user" | "ai"
+  role: "user" | "assistant" | "system"
+  isError?: boolean
 }
 
+/** Generate a simple UUID v4 */
+function generateUUID() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0
+    const v = c === "x" ? r : (r & 0x3) | 0x8
+    return v.toString(16)
+  })
+}
+
+const COOKIE_CONSENT_KEY = "cookie_consent_given"
+const CHAT_SESSION_KEY = "astra360_chat_session_id"
+
 export function ExpandableChatDemo() {
+  const cookiesAccepted = localStorage.getItem(COOKIE_CONSENT_KEY) === "true"
+
+  // Retrieve or generate a session ID if cookies are accepted
+  const getSessionId = (): string | null => {
+    if (!cookiesAccepted) return null
+    let sessionId = localStorage.getItem(CHAT_SESSION_KEY)
+    if (!sessionId) {
+      sessionId = generateUUID()
+      localStorage.setItem(CHAT_SESSION_KEY, sessionId)
+    }
+    return sessionId
+  }
+
+  const sessionIdRef = useRef<string | null>(getSessionId())
+  
+  // Track extracted lead info so we send it with requests after the user provides it
+  const [leadName, setLeadName] = useState<string | null>(null)
+  const [leadPhone, setLeadPhone] = useState<string | null>(null)
+
+  const initialGreeting = cookiesAccepted
+    ? "Hi there! 👋 I'm Mr.360, your Astra 360 assistant. To help personalize your experience, may I have your **name** and **phone number**? Or just ask how we can help your business grow!"
+    : "Hi there! 👋 I'm Mr.360, your Astra 360 assistant. How can I help you today?"
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      content: "Hello! How can I help you today?",
-      sender: "ai",
-    },
-    {
-      id: 2,
-      content: "I have a question about your services.",
-      sender: "user",
-    },
-    {
-      id: 3,
-      content: "Sure! I'd be happy to help. What would you like to know?",
-      sender: "ai",
+      content: initialGreeting,
+      role: "assistant",
     },
   ])
 
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: FormEvent) => {
+  /** Try to extract a name/phone from raw user text */
+  const extractLeadInfo = (text: string) => {
+    // Simple phone regex for Indian numbers or generic 10-digit
+    const phoneMatch = text.match(/(\+91[\s-]?)?[6-9]\d{9}/)
+    // Very rough name extraction: single capitalized word or two-word sequence
+    const nameMatch = text.match(/(?:(?:my|i am|i'm|this is|call me)\s+)?([A-Z][a-z]+(?:\s[A-Z][a-z]+)?)/)
+    
+    if (phoneMatch && !leadPhone) {
+      setLeadPhone(phoneMatch[0])
+    }
+    if (nameMatch && !leadName) {
+      setLeadName(nameMatch[1])
+    }
+  }
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    if (!input.trim()) return
+    if (!input.trim() || isLoading) return
 
-    setMessages((prev) => [
-      ...prev,
-      {
-        id: prev.length + 1,
-        content: input,
-        sender: "user",
-      },
-    ])
+    const userMessage: Message = {
+      id: Date.now(),
+      content: input,
+      role: "user",
+    }
 
+    setMessages((prev) => [...prev, userMessage])
     setInput("")
     setIsLoading(true)
 
-    setTimeout(() => {
+    // Try to extract lead info from the user input
+    extractLeadInfo(input)
+
+    // Build the message array sent to AI
+    const apiMessages = [...messages, userMessage]
+      .filter((m) => !m.isError)
+      .map((m) => ({
+        role: m.role,
+        content: m.content,
+      }))
+
+    const requestBody: Record<string, unknown> = {
+      messages: apiMessages,
+    }
+
+    // Include session and lead info if cookies are accepted
+    if (sessionIdRef.current) {
+      requestBody.session_id = sessionIdRef.current
+      if (leadName) requestBody.user_name = leadName
+      if (leadPhone) requestBody.user_phone = leadPhone
+    }
+
+    try {
+      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const apiUrl = baseUrl.endsWith('/api') ? `${baseUrl}/chatbot/message` : `${baseUrl}/api/chatbot/message`;
+      
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "text/event-stream",
+        },
+        body: JSON.stringify(requestBody),
+      })
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+
+      const aiMessageId = Date.now() + 1
       setMessages((prev) => [
         ...prev,
         {
-          id: prev.length + 1,
-          content: "This is an AI response to your message.",
-          sender: "ai",
+          id: aiMessageId,
+          content: "",
+          role: "assistant",
         },
       ])
+
       setIsLoading(false)
-    }, 1000)
+
+      const reader = response.body?.getReader()
+      const decoder = new TextDecoder("utf-8")
+      let aiFullResponse = ""
+
+      while (reader) {
+        const { value, done } = await reader.read()
+        if (done) break
+
+        const chunk = decoder.decode(value, { stream: true })
+        const lines = chunk.split("\n")
+
+        for (const line of lines) {
+          if (line.startsWith("data: ")) {
+            const dataStr = line.substring(6).trim()
+            if (dataStr === "[DONE]") break
+
+            try {
+              const data = JSON.parse(dataStr)
+              if (data.text) {
+                aiFullResponse += data.text
+                setMessages((prev) =>
+                  prev.map((msg) =>
+                    msg.id === aiMessageId
+                      ? { ...msg, content: aiFullResponse }
+                      : msg
+                  )
+                )
+              }
+              if (data.error) {
+                console.error("AI API Error Chunk:", data.error)
+                setMessages((prev) =>
+                  prev.map((msg) =>
+                    msg.id === aiMessageId
+                      ? { ...msg, content: aiFullResponse || "Error: AI provider quota exceeded or API keys invalid.", isError: true }
+                      : msg
+                  )
+                )
+              }
+            } catch (err) {
+              console.warn("Failed to parse SSE JSON:", dataStr)
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.error("Chatbot request failed:", error)
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now() + 2,
+          content: "Sorry, I am having trouble connecting to the server. Please check your backend is running or API keys are valid.",
+          role: "assistant",
+          isError: true,
+        },
+      ])
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -94,7 +231,7 @@ export function ExpandableChatDemo() {
     >
       <ExpandableChatHeader>
         <div className="flex flex-col">
-          <h3 className="text-lg font-semibold">Chat with AI ✨</h3>
+          <h3 className="text-lg font-semibold">Mr.360 - Your Super Bot</h3>
           <p className="text-sm text-muted-foreground">
             Ask me anything about the services
           </p>
@@ -106,12 +243,12 @@ export function ExpandableChatDemo() {
           {messages.map((message) => (
             <ChatBubble
               key={message.id}
-              variant={message.sender === "user" ? "sent" : "received"}
+              variant={message.role === "user" ? "sent" : "received"}
             >
               <ChatBubbleAvatar
-                fallback={message.sender === "user" ? "US" : "AI"}
+                fallback={message.role === "user" ? "US" : "AI"}
               />
-              <ChatBubbleMessage>
+              <ChatBubbleMessage className={message.isError ? "text-destructive font-medium bg-destructive/10" : ""}>
                 {message.content}
               </ChatBubbleMessage>
             </ChatBubble>

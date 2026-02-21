@@ -46,10 +46,59 @@ export function ChatBubbleMessage({
   className,
   children,
 }: ChatBubbleMessageProps) {
+  
+  // Helper to parse text into clickable links, emails, and phone numbers
+  const formatContent = (content: React.ReactNode) => {
+    if (typeof content !== 'string') return content;
+    
+    // Regex for URLs, Emails, and Phone Numbers (including +91 format)
+    const phoneRegex = /(\+?\d{1,4}[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9})/g;
+    const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g;
+    
+    // Split by email first, keeping the delimiter
+    const emailParts = content.split(emailRegex);
+    const parsedWithEmails: React.ReactNode[] = [];
+
+    for (let i = 0; i < emailParts.length; i++) {
+        // Odd indices are the captured emails
+        if (i % 2 !== 0) {
+            parsedWithEmails.push(<a key={`email-${i}`} href={`mailto:${emailParts[i]}`} className="text-blue-500 hover:underline">{emailParts[i]}</a>);
+        } else {
+            parsedWithEmails.push(emailParts[i]);
+        }
+    }
+    
+    // Now pass over the parts again to parse phone numbers
+    const finalContent = parsedWithEmails.reduce((acc: React.ReactNode[], part, i) => {
+        if (typeof part === 'string') {
+            const phoneParts = part.split(phoneRegex);
+            const parsedPhoneParts: React.ReactNode[] = [];
+            
+            for (let j = 0; j < phoneParts.length; j++) {
+                 // Odd indices are the captured phone numbers
+                 if (j % 2 !== 0) {
+                      const digitsOnly = phoneParts[j].replace(/\D/g, '');
+                      if (digitsOnly.length >= 7) {
+                          parsedPhoneParts.push(<a key={`phone-${i}-${j}`} href={`tel:${digitsOnly}`} className="text-blue-500 hover:underline">{phoneParts[j]}</a>);
+                      } else {
+                          parsedPhoneParts.push(phoneParts[j]);
+                      }
+                 } else {
+                     parsedPhoneParts.push(phoneParts[j]);
+                 }
+            }
+            return acc.concat(parsedPhoneParts);
+        }
+        return acc.concat(part);
+    }, []);
+
+    return finalContent;
+  };
+
   return (
     <div
       className={cn(
-        "rounded-lg p-3",
+        "rounded-lg p-3 whitespace-pre-wrap",
         variant === "sent"
           ? "bg-primary text-primary-foreground"
           : "bg-muted text-foreground",
@@ -61,11 +110,12 @@ export function ChatBubbleMessage({
           <MessageLoading />
         </div>
       ) : (
-        children
+        formatContent(children)
       )}
     </div>
   )
 }
+
 
 interface ChatBubbleAvatarProps {
   src?: string

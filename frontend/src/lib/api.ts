@@ -59,5 +59,18 @@ export const contactApi = {
   }) => api.post('/contact/submit', data),
 };
 
+// Feedback API functions
+export const feedbackApi = {
+  submit: (data: {
+    rating: number;
+    category: string;
+    name: string;
+    email: string;
+    company: string;
+    role: string;
+    feedback: string;
+  }) => api.post('/feedback/submit', data),
+};
+
 export default api;
 
