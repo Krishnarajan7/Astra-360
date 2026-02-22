@@ -73,7 +73,7 @@ const Feedback = () => {
       });
 
       toast({
-        title: "Success! 🎉",
+        title: "Success! ✨",
         description: response.data.message || "Thank you for your feedback!",
       });
 

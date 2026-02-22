@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/button";
 // Mock project data - in a real app this would come from an API
 const projectsData: Record<string, {
   id: string;
-  title: string;
+  title: React.ReactNode;
   category: string;
   description: string;
+  videoUrl?: string;
   projectUrl?: string;
   fullDescription: string;
   image: string;
@@ -383,6 +384,147 @@ const projectsData: Record<string, {
     year: "2023",
     team: "4 specialists",
     services: ["Brand Guidelines", "Asset Library", "Training Materials"]
+  },
+  // New Digital Marketing Projects
+  "pr3-marketing": {
+    id: "pr3-marketing",
+    title: "PR3 Digital Marketing Team",
+    category: "Digital Marketing",
+    description: "Official PR3 team digital marketing team",
+    fullDescription: "As the official Digital Marketing partner for PR3 Shop, we manage the complete digital ecosystem. Our work involves high-quality video production, professional editing, and creative content making to drive brand excellence and customer engagement across all digital touchpoints.",
+    image: "https://pr3.in/shop/wp-content/uploads/2023/12/pr3-logo.png",
+    results: ["Official Partner", "Video Excellence", "Content Mastery"],
+    client: "PR3 Shop",
+    projectUrl: "https://pr3.in/shop/",
+    year: "2025",
+    team: "Astra 360",
+    services: ["Video Production", "Professional Editing", "Content Making", "Digital Marketing"]
+  },
+  "pr3-showcase": {
+    id: "pr3-showcase",
+    title: "PR3 Official Showcase",
+    category: "Digital Marketing",
+    description: "Official PR3 team digital marketing team",
+    fullDescription: "A deep dive into the visual storytelling and content creation for PR3 Shop. This showcase highlights our ability to capture the essence of the brand through professional video production and dynamic editing.",
+    videoUrl: "/pr3/IMG_9738.mp4",
+    image: "https://pr3.in/shop/wp-content/uploads/2023/12/pr3-logo.png",
+    results: ["Official Partner", "Content Excellence", "Visual Mastery"],
+    client: "PR3 Shop",
+    projectUrl: "https://pr3.in/shop/",
+    year: "2025",
+    team: "Astra 360",
+    services: ["Video Production", "Editing", "Content Creation"]
+  },
+  // New Video Production Projects
+  "brindha-ai": {
+    id: "brindha-ai",
+    title: "Brindha AI & IT Solutions",
+    category: "Video Production",
+    description: "Innovative AI and IT solutions promo",
+    fullDescription: "A cutting-edge video production project for Brindha AI, highlighting their IT solutions and technological expertise through high-quality visuals and motion graphics.",
+    image: "/images/pdc.png",
+    videoUrl: "/videos/Brindha-AI.mp4",
+    results: ["Tech Showcase", "Innovation Promo"],
+    client: "Brindha AI",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Video Production", "Motion Graphics", "Tech Branding"]
+  },
+  "brindha-makeup": {
+    id: "brindha-makeup",
+    title: "Brindha Makeup Artistry",
+    category: "Video Production",
+    description: "Professional makeup artistry showcase",
+    fullDescription: "A visual masterpiece showcasing the expertise of Brindha Makeup Artistry, capturing the beauty and precision of professional makeup work.",
+    image: "/images/pdc.png",
+    videoUrl: "/videos/Brindha-Makeup.mp4",
+    results: ["Artist Showcase", "Visual Elegance"],
+    client: "Brindha Makeup Artistry",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Video Production", "Cinematography", "Style Branding"]
+  },
+  "vedha-clothing": {
+    id: "vedha-clothing",
+    title: "Vedha Clothing Promo",
+    category: "Video Production",
+    description: "Dynamic fashion and lifestyle film",
+    fullDescription: "A vibrant and energetic promo film for Vedha Clothing, blending lifestyle cinematography with fashion storytelling.",
+    image: "/images/pdc.png",
+    videoUrl: "/videos/Vedha-clothing-promo.mp4",
+    results: ["Fashion Promo", "Brand Lifestyle"],
+    client: "Vedha Clothing",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Video Production", "Fashion Film", "Visual Marketing"]
+  },
+  "client-personal-work": {
+    id: "client-personal-work",
+    title: "Client Personal Work",
+    category: "Video Production",
+    description: "Creative personal project highlights",
+    fullDescription: "A compilation of creative personal projects highlighting high-quality cinematography and storytelling for a premium client.",
+    image: "/images/pdc.png",
+    videoUrl: "/videos/Client-Personal-work.mp4",
+    results: ["Creative Highlights", "Visual Excellence"],
+    client: "Private Client",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Video Production", "Cinematography", "Personal Branding"]
+  },
+  // New Branding Projects
+  "cooking-ars-branding": {
+    id: "cooking-ars-branding",
+    title: "Cooking ARS Branding",
+    category: "Branding",
+    description: "Creative poster design and identity",
+    fullDescription: "Comprehensive brand identity work for Cooking ARS, featuring a series of creative poster designs that capture the essence of culinary art.",
+    image: "/branding/Cooking-ARS.jpg",
+    results: ["Creative Poster Designs", "Market Recognition"],
+    client: "Cooking ARS",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Brand Identity", "Poster Design", "Graphic Design"]
+  },
+  "ars-offer-poster": {
+    id: "ars-offer-poster",
+    title: "ARS Offer Campaigns",
+    category: "Branding",
+    description: "Dynamic promotional campaign posters",
+    fullDescription: "Designing impactful promotional posters for ARS brand offers, aimed at driving engagement and customer retention through visually compelling layouts.",
+    image: "/branding/ARS(offer).jpg",
+    results: ["High Campaign Engagement", "Visual Impact"],
+    client: "ARS",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Campaign Design", "Poster Design", "Promotion Marketing"]
+  },
+  "ars-saree-logo": {
+    id: "ars-saree-logo",
+    title: "ARS Saree Collections",
+    category: "Branding",
+    description: "Traditional logo and branding elements",
+    fullDescription: "Crafting a unique logo and branding system for ARS Saree Collections, celebrating traditional aesthetics while maintaining a modern appeal.",
+    image: "/branding/ARS(saree).jpg",
+    results: ["Distinctive Logo", "Traditional Branding"],
+    client: "ARS Saree Collections",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Logo Design", "Identity Design", "Traditional Branding"]
+  },
+  "mimcraft-branding": {
+    id: "mimcraft-branding",
+    title: "MiM Craft Lab Identity",
+    category: "Branding",
+    description: "Full brand identity and guidelines",
+    fullDescription: "A complete visual identity package for MiM Craft Lab, including logo templates, branding guidelines, and visual assets to ensure consistent representation.",
+    image: "/images/mimcraft.png",
+    projectUrl: "/branding/MimCraft.pdf",
+    results: ["Brand Consistency", "Professional Guidelines"],
+    client: "MiM Craft Lab",
+    year: "2024",
+    team: "Astra 360",
+    services: ["Brand Guidelines", "Visual Identity", "Logo Templates"]
   }
 };
 
@@ -441,15 +583,49 @@ const Project = () => {
         </section>
 
         {/* Project Image */}
-        <section className="pb-16 lg:pb-24 bg-gradient-subtle">
+        <section className="pb-16 lg:pb-24 bg-gradient-subtle overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="relative rounded-3xl overflow-hidden aspect-video shadow-2xl animate-fade-up" style={{ animationDelay: "300ms" }}>
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            <div className="flex justify-center animate-fade-up" style={{ animationDelay: "300ms" }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black/5 max-w-5xl w-full flex justify-center group/media">
+                {project.videoUrl ? (
+                  <>
+                    {/* Blurred Background Effect for Vertical/Odd Ratios */}
+                    <div className="absolute inset-0 z-0 pointer-events-none opacity-40 scale-110 blur-3xl">
+                      <video
+                        src={project.videoUrl}
+                        className="w-full h-full object-cover"
+                        muted
+                        loop
+                        autoPlay
+                      />
+                    </div>
+                    <video
+                      src={project.videoUrl}
+                      className="w-full h-auto max-h-[85vh] object-contain relative z-10"
+                      controls
+                      preload="metadata"
+                      autoPlay
+                      muted
+                    />
+                  </>
+                ) : (
+                  <>
+                    <div 
+                      className="absolute inset-0 z-0 pointer-events-none opacity-30 scale-110 blur-3xl"
+                      style={{ 
+                        backgroundImage: `url(${project.image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                    />
+                    <img
+                      src={project.image}
+                      alt={typeof project.title === 'string' ? project.title : 'Project Image'}
+                      className="w-full h-auto max-h-[85vh] object-contain relative z-10"
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </section>

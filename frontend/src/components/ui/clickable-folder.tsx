@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 
 interface ProjectPreview {
-  image: string;
+  image?: string;
+  videoUrl?: string;
   title: string;
   route: string;
 }
