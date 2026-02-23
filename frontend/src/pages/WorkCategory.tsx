@@ -155,7 +155,7 @@ export const categoriesData: Record<string, {
             Visit PR3 Shop
           </a>
           <a 
-            href="https://www.instagram.com/pr3.in_clothings?igsh=MTZnaWlsMGE1cGp5cA==" 
+            href="https://www.instagram.com/pr3_online?igsh=dzl6OHNlbGY5YThi" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-8 py-4 bg-secondary text-foreground rounded-full hover:bg-secondary/80 transition-all duration-300 border border-border shadow-sm hover:shadow-md scale-100 hover:scale-105 active:scale-95 font-semibold"

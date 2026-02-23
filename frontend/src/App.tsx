@@ -13,6 +13,7 @@ import Project from "./pages/Project";
 import NotFound from "./pages/NotFound";
 import { SimpleToastProvider } from "./components/ui/simple-toast";
 import WorkCategory from "./pages/WorkCategory";
+import DigitalMarketing from "./pages/DigitalMarketing";
 import { ExpandableChatDemo } from "./components/ExpandableChatDemo";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieConsent } from "@/components/ui/cookie-consent";
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/work/digital-marketing" element={<DigitalMarketing />} />
             <Route path="/work/:categoryId" element={<WorkCategory />} />
             <Route path="/project/:projectId" element={<Project />} />
             <Route path="/contact" element={<Contact />} />
