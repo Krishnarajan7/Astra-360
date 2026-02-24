@@ -17,6 +17,8 @@ import DigitalMarketing from "./pages/DigitalMarketing";
 import { ExpandableChatDemo } from "./components/ExpandableChatDemo";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieConsent } from "@/components/ui/cookie-consent";
+import VideoProduction from "./pages/VideoProduction";
+import Branding from "./pages/Branding";
 import { FloatingActionButton } from "@/components/FloatingActionButton";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -38,6 +40,8 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/work" element={<Work />} />
             <Route path="/work/digital-marketing" element={<DigitalMarketing />} />
+            <Route path="/work/video-production" element={<VideoProduction />} />
+          <Route path="/work/branding" element={<Branding />} />
             <Route path="/work/:categoryId" element={<WorkCategory />} />
             <Route path="/project/:projectId" element={<Project />} />
             <Route path="/contact" element={<Contact />} />
